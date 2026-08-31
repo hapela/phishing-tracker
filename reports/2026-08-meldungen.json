@@ -1,0 +1,24 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-08-001",
+      "datum": "2026-08-31",
+      "absender": "noreply@fake-bank.com",
+      "betreff": "⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto",
+      "typ": "phishing",
+      "beschreibung": "Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen",
+      "status": "aktiv",
+      "tags": ["bank", "phishing", "dringend"]
+    },
+    {
+      "id": "2026-08-002",
+      "datum": "2026-08-30",
+      "absender": "winners@spam.xyz",
+      "betreff": "🎉 Du hast 1.000.000€ gewonnen!",
+      "typ": "spam",
+      "beschreibung": "Klassische Gewinn-Spam, Aufforderung zu Geldtransfer",
+      "status": "aktiv",
+      "tags": ["spam", "betrug"]
+    }
+  ]
+}
