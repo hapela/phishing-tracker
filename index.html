@@ -233,3 +233,241 @@
         .tag {
             background: #e0e0e0;
             color: #333;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            .mail-header {
+                flex-direction: column;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚠️ Meldungen verdächtiger E-Mails</h1>
+            <p>Zentrales Tracking von Phishing-, Spam- und Malware-Mails</p>
+        </header>
+        
+        <div class="content">
+            <a href="feed.xml" class="rss-link" target="_blank">📡 RSS-Feed abonnieren</a>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="number" id="total-count">0</div>
+                    <div class="label">Meldungen gesamt</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number" id="phishing-count">0</div>
+                    <div class="label">Phishing</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number" id="spam-count">0</div>
+                    <div class="label">Spam</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number" id="malware-count">0</div>
+                    <div class="label">Malware</div>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="phishing">🚨 Phishing</button>
+                <button class="filter-btn" data-filter="spam">📧 Spam</button>
+                <button class="filter-btn" data-filter="malware">💀 Malware</button>
+            </div>
+            
+            <div id="mails-container" class="loading">
+                ⏳ Mails werden geladen...
+            </div>
+        </div>
+        
+        <footer>
+            Zuletzt aktualisiert: <span id="last-update">lädt...</span> | 
+            <a href="https://github.com/dein-username/mail-reports" target="_blank">📌 GitHub Repository</a>
+        </footer>
+    </div>
+    
+    <script>
+        let allMails = [];
+        let currentFilter = 'all';
+        
+        // RSS-Feed laden
+        async function loadMails() {
+            try {
+                const response = await fetch('feed.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+                
+                // Fehlerbehandlung
+                if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+                    showError('Fehler beim Parsen des RSS-Feeds');
+                    return;
+                }
+                
+                // Alle Items aus dem RSS-Feed extrahieren
+                const items = xmlDoc.querySelectorAll('item');
+                allMails = Array.from(items).map(item => {
+                    const title = item.querySelector('title')?.textContent || '';
+                    const description = item.querySelector('description')?.textContent || '';
+                    const pubDate = item.querySelector('pubDate')?.textContent || '';
+                    const guid = item.querySelector('guid')?.textContent || '';
+                    
+                    // Typ aus Titel extrahieren [PHISHING], [SPAM], etc.
+                    let typ = 'info';
+                    if (title.includes('[PHISHING]')) typ = 'phishing';
+                    else if (title.includes('[SPAM]')) typ = 'spam';
+                    else if (title.includes('[MALWARE]')) typ = 'malware';
+                    
+                    return {
+                        title: title.replace(/\[.*?\]\s*/, ''),
+                        description,
+                        pubDate: new Date(pubDate),
+                        guid,
+                        typ
+                    };
+                });
+                
+                // Sortieren nach Datum (neueste zuerst)
+                allMails.sort((a, b) => b.pubDate - a.pubDate);
+                
+                // Statistiken aktualisieren
+                updateStats();
+                
+                // Mails anzeigen
+                renderMails('all');
+                
+                // Letztes Update anzeigen
+                const lastBuildDate = xmlDoc.querySelector('lastBuildDate')?.textContent || '';
+                document.getElementById('last-update').textContent = lastBuildDate;
+                
+            } catch (error) {
+                console.error('Fehler beim Laden:', error);
+                showError('Fehler beim Laden des RSS-Feeds: ' + error.message);
+            }
+        }
+        
+        // Statistiken aktualisieren
+        function updateStats() {
+            document.getElementById('total-count').textContent = allMails.length;
+            document.getElementById('phishing-count').textContent = 
+                allMails.filter(m => m.typ === 'phishing').length;
+            document.getElementById('spam-count').textContent = 
+                allMails.filter(m => m.typ === 'spam').length;
+            document.getElementById('malware-count').textContent = 
+                allMails.filter(m => m.typ === 'malware').length;
+        }
+        
+        // Mails rendern
+        function renderMails(filter) {
+            currentFilter = filter;
+            const container = document.getElementById('mails-container');
+            
+            // Filter anwenden
+            const filtered = filter === 'all' ? allMails : allMails.filter(m => m.typ === filter);
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="no-results">Keine Meldungen für diesen Filter gefunden.</div>';
+                return;
+            }
+            
+            // Filter-Buttons aktualisieren
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            
+            // HTML generieren
+            container.innerHTML = filtered.map(mail => `
+                <div class="mail-item ${mail.typ}">
+                    <div class="mail-header">
+                        <div class="mail-title">${escapeHtml(mail.title)}</div>
+                        <span class="badge ${mail.typ}">${mail.typ.toUpperCase()}</span>
+                    </div>
+                    <div class="mail-description">${escapeHtml(mail.description)}</div>
+                    <div class="mail-footer">
+                        <span>📅 ${new Date(mail.pubDate).toLocaleDateString('de-DE', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })}</span>
+                        <span>ID: ${escapeHtml(mail.guid)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Error anzeigen
+        function showError(message) {
+            const container = document.getElementById('mails-container');
+            container.innerHTML = `<div class="error">❌ ${escapeHtml(message)}</div>`;
+        }
+        
+        // HTML-Injection verhindern
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+        
+        // Filter-Buttons Event-Listener
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                renderMails(btn.dataset.filter);
+            });
+        });
+        
+        // Initial laden
+        loadMails();
+    </script>
+</body>
+</html>
+
