@@ -5,27 +5,58 @@ from email.utils import formatdate
 
 REPORTS_DIR = "reports"
 OUTPUT_FILE = "feed.xml"
+BASE_URL = "https://hapela.github.io/phishing-tracker"  # Anpassen!
 
-RSS_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
+RSS_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sicherheitsmeldungen Feed</title>
-    <link>https://github.com/[dein-username]/[repo-name]</link>
+    <title>Sicherheitsmeldungen</title>
+    <link>{base_url}</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    {items}
-  </channel>
+    <lastBuildDate>{lastBuildDate}</lastBuildDate>
+"""
+
+RSS_FOOTER = """  </channel>
 </rss>
 """
 
 ITEM_TEMPLATE = """    <item>
       <title>{title}</title>
-      <description>{description_text}</description>
-      <content:encoded>&lt;![CDATA[{description_html}]]&gt;</content:encoded>
       <pubDate>{pubDate}</pubDate>
       <guid>{guid}</guid>
+      <description>
+        <![CDATA[<div style="font-family: Arial, sans-serif; color: #111; line-height: 1.6;">
+          
+          <p><h2>🚨 Warnung </h2> </p>
+          
+          <p style="margin: 0 0 8px 0;"><strong>⚠️ Angriffsart:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              {typ}
+          </blockquote>
+          
+          <p style="margin: 0 0 8px 0;"><strong>📧 Absender:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              {absender}
+          </blockquote>
+          
+          {gefaehrlicher_link_block}
+          
+          <p style="margin: 0 0 8px 0;"><strong>ℹ️ Weitere Informationen zur Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              {beschreibung}
+          </blockquote>
+
+          <p style="margin: 0 0 8px 0;"><strong>🗓️ Datum der Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              {datum}
+          </blockquote>
+          
+          {screenshot_block}
+        ]]>
+      </description>
     </item>
 """
 
@@ -59,7 +90,7 @@ def generate_rss():
         os.makedirs(REPORTS_DIR)
         return
     
-    for filename in sorted(os.listdir(REPORTS_DIR)):
+    for filename in sorted(os.listdir(REPORTS_DIR), reverse=True):
         if filename.endswith(".json"):
             filepath = os.path.join(REPORTS_DIR, filename)
             
@@ -75,73 +106,73 @@ def generate_rss():
                     typ = meldung.get("typ", "")
                     absender = meldung.get("absender", "")
                     beschreibung = meldung.get("beschreibung", "")
-                    status = meldung.get("status", "")
-                    tags = meldung.get("tags", [])
                     datum = meldung.get("datum", "")
                     gefaehrlicher_link = meldung.get("gefaehrlicher_link", "")
-                    weitere_infos = meldung.get("weitere_infos", "")
                     screenshot = meldung.get("screenshot", "")
                     
-                    title = f"⚠️ {betreff}"
+                    title = escape_html(betreff)
+                    typ_escaped = escape_html(typ)
+                    absender_escaped = escape_html(absender)
+                    beschreibung_escaped = escape_html(beschreibung)
+                    datum_escaped = escape_html(datum)
                     
-                    # HTML Description
-                    description_html = f"""
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>{escape_html(typ)}</strong></p>
-
-<h2>📧 Absender:</h2>
-<p>{escape_html(absender)}</p>
-
-{"<h2>🔗 Gefährlicher Link:</h2><p><code>" + escape_html(gefaehrlicher_link) + "</code></p>" if gefaehrlicher_link else ""}
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>{escape_html(beschreibung)}</p>
-{"<p><a href='" + escape_html(weitere_infos) + "'>Mehr Infos auf VirusTotal</a></p>" if weitere_infos else ""}
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>{escape_html(datum)}</p>
-
-{"<h2>📸 Screenshot der Mail:</h2><p><img src='" + escape_html(screenshot) + "' style='max-width: 600px; border: 1px solid #ccc;' /></p>" if screenshot else ""}
-
-<h2>Tags:</h2>
-<p>{", ".join([f"<span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>{escape_html(tag)}</span>" for tag in tags])}</p>
-
-<hr />
-<p><strong>Status:</strong> {escape_html(status)}</p>
-"""
+                    # Gefährlicher Link Block (optional)
+                    if gefaehrlicher_link:
+                        gefaehrlicher_link_block = f"""<p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+             {escape_html(gefaehrlicher_link)}
+          </blockquote>
+          """
+                    else:
+                        gefaehrlicher_link_block = ""
                     
-                    # Plaintext Description
-                    description_text = f"""Angriffstyp: {typ}
-Absender: {absender}
-{"Gefährlicher Link: " + gefaehrlicher_link if gefaehrlicher_link else ""}
-Beschreibung: {beschreibung}
-{"Weitere Infos: " + weitere_infos if weitere_infos else ""}
-Datum: {datum}
-Tags: {", ".join(tags)}
-Status: {status}"""
+                    # Screenshot Block (optional)
+                    if screenshot:
+                        screenshot_url = f"{BASE_URL}/{screenshot}" if not screenshot.startswith("http") else screenshot
+                        screenshot_block = f"""<p><strong>Screenshot der Mail:</strong></p>
+          <p>
+           <img
+            src="{escape_html(screenshot_url)}"
+            alt="Screenshot"
+            style="max-width:600px;" />
+          </p>"""
+                    else:
+                        screenshot_block = ""
                     
                     pubDate = convert_date_to_rfc2822(datum)
                     
                     item = ITEM_TEMPLATE.format(
-                        title=escape_html(title),
-                        description_text=escape_html(description_text),
-                        description_html=description_html,
+                        title=title,
                         pubDate=pubDate,
-                        guid=id_val
+                        guid=escape_html(id_val),
+                        typ=typ_escaped,
+                        absender=absender_escaped,
+                        beschreibung=beschreibung_escaped,
+                        datum=datum_escaped,
+                        gefaehrlicher_link_block=gefaehrlicher_link_block,
+                        screenshot_block=screenshot_block
                     )
                     items.append(item)
             
             except Exception as e:
                 print(f"❌ Fehler bei {filename}: {e}")
     
-    rss_content = RSS_TEMPLATE.format(items="\n".join(items))
+    # Aktuelles Datum für lastBuildDate
+    lastBuildDate = formatdate(localtime=False, usegmt=True)
+    
+    rss_content = RSS_HEADER.format(
+        base_url=BASE_URL,
+        lastBuildDate=lastBuildDate
+    )
+    rss_content += "\n".join(items)
+    rss_content += RSS_FOOTER
     
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(rss_content)
     
     print(f"✅ RSS Feed generiert: {OUTPUT_FILE}")
     print(f"✅ {len(items)} Meldungen verarbeitet")
+    print(f"✅ Letzte Aktualisierung: {lastBuildDate}")
 
 if __name__ == "__main__":
     generate_rss()
-
