@@ -3,85 +3,91 @@
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sicherheitsmeldungen Feed</title>
-    <link>https://github.com/[dein-username]/[repo-name]</link>
+    <title>Sicherheitsmeldungen</title>
+    <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-        <item>
-      <title>⚠️ Mail-Phishing</title>
-      <description>Angriffstyp: Mail-Phishing
-Absender: Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;
-Gefährlicher Link: hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman
-Beschreibung: Der HTML-Code der Webseite wird sehr verschleiert dargestellt.
-Weitere Infos: https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1
-Datum: 2026-08-24T08:18:16.070Z
-Tags: phishing, mail, kritisch
-Status: open</description>
-      <content:encoded>&lt;![CDATA[
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>Mail-Phishing</strong></p>
+    <lastBuildDate>Tue, 01 Sep 2026 12:36:20 GMT</lastBuildDate>
+    <item>
+      <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <guid>2026-08-101</guid>
+      <description>
+        <![CDATA[<div style="font-family: Arial, sans-serif; color: #111; line-height: 1.6;">
+          
+          <p><h2>🚨 Warnung </h2> </p>
+          
+          <p style="margin: 0 0 8px 0;"><strong>⚠️ Angriffsart:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              phishing
+          </blockquote>
+          
+          <p style="margin: 0 0 8px 0;"><strong>📧 Absender:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              noreply@fake-bank.com
+          </blockquote>
+          
+          
+          
+          <p style="margin: 0 0 8px 0;"><strong>ℹ️ Weitere Informationen zur Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+          </blockquote>
 
-<h2>📧 Absender:</h2>
-<p>Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;</p>
-
-<h2>🔗 Gefährlicher Link:</h2><p><code>hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman</code></p>
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>Der HTML-Code der Webseite wird sehr verschleiert dargestellt.</p>
-<p><a href='https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1'>Mehr Infos auf VirusTotal</a></p>
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>2026-08-24T08:18:16.070Z</p>
-
-<h2>📸 Screenshot der Mail:</h2><p><img src='https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
-
-<h2>Tags:</h2>
-<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>mail</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>kritisch</span></p>
-
-<hr />
-<p><strong>Status:</strong> open</p>
-]]&gt;</content:encoded>
-      <pubDate>Mon, 24 Aug 2026 08:18:16 GMT</pubDate>
-      <guid>2026-08-001</guid>
+          <p style="margin: 0 0 8px 0;"><strong>🗓️ Datum der Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              2026-09-01
+          </blockquote>
+          
+          
+        ]]>
+      </description>
     </item>
 
     <item>
-      <title>⚠️ ⚠️ Dringende meldung eines gefälschten Kontos</title>
-      <description>Angriffstyp: phishing
-Absender: noreply@fake-bank.com
+      <title>Mail-Phishing</title>
+      <pubDate>Mon, 24 Aug 2026 08:18:16 GMT</pubDate>
+      <guid>2026-08-001</guid>
+      <description>
+        <![CDATA[<div style="font-family: Arial, sans-serif; color: #111; line-height: 1.6;">
+          
+          <p><h2>🚨 Warnung </h2> </p>
+          
+          <p style="margin: 0 0 8px 0;"><strong>⚠️ Angriffsart:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              Mail-Phishing
+          </blockquote>
+          
+          <p style="margin: 0 0 8px 0;"><strong>📧 Absender:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;
+          </blockquote>
+          
+          <p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+             hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman
+          </blockquote>
+          
+          
+          <p style="margin: 0 0 8px 0;"><strong>ℹ️ Weitere Informationen zur Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              Der HTML-Code der Webseite wird sehr verschleiert dargestellt.
+          </blockquote>
 
-Beschreibung: Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
-
-Datum: 2026-09-01
-Tags: bank, phishing, dringend
-Status: aktiv</description>
-      <content:encoded>&lt;![CDATA[
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>phishing</strong></p>
-
-<h2>📧 Absender:</h2>
-<p>noreply@fake-bank.com</p>
-
-
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen</p>
-
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>2026-09-01</p>
-
-
-
-<h2>Tags:</h2>
-<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>bank</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>dringend</span></p>
-
-<hr />
-<p><strong>Status:</strong> aktiv</p>
-]]&gt;</content:encoded>
-      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
-      <guid>2026-08-101</guid>
+          <p style="margin: 0 0 8px 0;"><strong>🗓️ Datum der Meldung:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+              2026-08-24T08:18:16.070Z
+          </blockquote>
+          
+          <p><strong>Screenshot der Mail:</strong></p>
+          <p>
+           <img
+            src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png"
+            alt="Screenshot"
+            style="max-width:600px;" />
+          </p>
+        ]]>
+      </description>
     </item>
-
   </channel>
 </rss>
