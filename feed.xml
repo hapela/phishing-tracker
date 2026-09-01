@@ -1,39 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Meldungen Feed</title>
+    <title>Sicherheitsmeldungen Feed</title>
     <link>https://github.com/[dein-username]/[repo-name]</link>
-    <description>Automatisch generierter Feed aus JSON Reports</description>
+    <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
         <item>
-      <title>⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto [phishing]</title>
-      <description><b>Absender:</b> noreply@fake-bank.com<br/>
-<b>Typ:</b> phishing<br/>
-<b>Beschreibung:</b> Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen<br/>
-<b>Status:</b> aktiv<br/>
-<b>Tags:</b> bank, phishing, dringend</description>
+      <title>⚠️ ⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto</title>
+      <description>Angriffstyp: phishing
+Absender: noreply@fake-bank.com
+
+Beschreibung: Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+
+Datum: 2026-08-31
+Tags: bank, phishing, dringend
+Status: aktiv</description>
+      <content:encoded>&lt;![CDATA[
+<h2>⚠️ Angriffstyp:</h2>
+<p><strong>phishing</strong></p>
+
+<h2>📧 Absender:</h2>
+<p>noreply@fake-bank.com</p>
+
+
+
+<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
+<p>Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen</p>
+
+
+<h2>🗓️ Datum der Meldung:</h2>
+<p>2026-08-31</p>
+
+
+
+<h2>Tags:</h2>
+<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>bank</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>dringend</span></p>
+
+<hr />
+<p><strong>Status:</strong> aktiv</p>
+]]&gt;</content:encoded>
       <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
       <guid>2026-08-001</guid>
     </item>
 
     <item>
-      <title>🎉 Du hast 1.000.000€ gewonnen! [spam]</title>
-      <description><b>Absender:</b> winners@spam.xyz<br/>
-<b>Typ:</b> spam<br/>
-<b>Beschreibung:</b> Klassische Gewinn-Spam, Aufforderung zu Geldtransfer<br/>
-<b>Status:</b> aktiv<br/>
-<b>Tags:</b> spam, betrug</description>
+      <title>⚠️ 🎉 Du hast 1.000.000€ gewonnen!</title>
+      <description>Angriffstyp: spam
+Absender: winners@spam.xyz
+
+Beschreibung: Klassische Gewinn-Spam, Aufforderung zu Geldtransfer
+
+Datum: 2026-08-30
+Tags: spam, betrug
+Status: aktiv</description>
+      <content:encoded>&lt;![CDATA[
+<h2>⚠️ Angriffstyp:</h2>
+<p><strong>spam</strong></p>
+
+<h2>📧 Absender:</h2>
+<p>winners@spam.xyz</p>
+
+
+
+<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
+<p>Klassische Gewinn-Spam, Aufforderung zu Geldtransfer</p>
+
+
+<h2>🗓️ Datum der Meldung:</h2>
+<p>2026-08-30</p>
+
+
+
+<h2>Tags:</h2>
+<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>spam</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>betrug</span></p>
+
+<hr />
+<p><strong>Status:</strong> aktiv</p>
+]]&gt;</content:encoded>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
       <guid>2026-08-002</guid>
     </item>
 
     <item>
-      <title>⚠️ Dringende Meldung eines gefälschten Kontos [phishing]</title>
-      <description><b>Absender:</b> noreply@fake-bank.com<br/>
-<b>Typ:</b> phishing<br/>
-<b>Beschreibung:</b> Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen<br/>
-<b>Status:</b> aktiv<br/>
-<b>Tags:</b> bank, phishing, dringend</description>
+      <title>⚠️ ⚠️ Dringende meldung eines gefälschten Kontos</title>
+      <description>Angriffstyp: phishing
+Absender: noreply@fake-bank.com
+
+Beschreibung: Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+
+Datum: 2026-09-01
+Tags: bank, phishing, dringend
+Status: aktiv</description>
+      <content:encoded>&lt;![CDATA[
+<h2>⚠️ Angriffstyp:</h2>
+<p><strong>phishing</strong></p>
+
+<h2>📧 Absender:</h2>
+<p>noreply@fake-bank.com</p>
+
+
+
+<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
+<p>Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen</p>
+
+
+<h2>🗓️ Datum der Meldung:</h2>
+<p>2026-09-01</p>
+
+
+
+<h2>Tags:</h2>
+<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>bank</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>dringend</span></p>
+
+<hr />
+<p><strong>Status:</strong> aktiv</p>
+]]&gt;</content:encoded>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
       <guid>2026-08-101</guid>
     </item>
