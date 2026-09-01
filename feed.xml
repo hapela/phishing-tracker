@@ -33,7 +33,7 @@ Status: open</description>
 <h2>🗓️ Datum der Meldung:</h2>
 <p>2026-08-24T08:18:16.070Z</p>
 
-<h2>📸 Screenshot der Mail:</h2><p><img src='reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
+<h2>📸 Screenshot der Mail:</h2><p><img src='https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
 
 <h2>Tags:</h2>
 <p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>mail</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>kritisch</span></p>
