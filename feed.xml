@@ -8,79 +8,41 @@
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
         <item>
-      <title>⚠️ ⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto</title>
-      <description>Angriffstyp: phishing
-Absender: noreply@fake-bank.com
-
-Beschreibung: Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
-
-Datum: 2026-08-31
-Tags: bank, phishing, dringend
-Status: aktiv</description>
+      <title>⚠️ Mail-Phishing</title>
+      <description>Angriffstyp: Mail-Phishing
+Absender: Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;
+Gefährlicher Link: hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman
+Beschreibung: Der HTML-Code der Webseite wird sehr verschleiert dargestellt.
+Weitere Infos: https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1
+Datum: 2026-08-24T08:18:16.070Z
+Tags: phishing, mail, kritisch
+Status: open</description>
       <content:encoded>&lt;![CDATA[
 <h2>⚠️ Angriffstyp:</h2>
-<p><strong>phishing</strong></p>
+<p><strong>Mail-Phishing</strong></p>
 
 <h2>📧 Absender:</h2>
-<p>noreply@fake-bank.com</p>
+<p>Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;</p>
 
-
+<h2>🔗 Gefährlicher Link:</h2><p><code>hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman</code></p>
 
 <h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen</p>
-
+<p>Der HTML-Code der Webseite wird sehr verschleiert dargestellt.</p>
+<p><a href='https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1'>Mehr Infos auf VirusTotal</a></p>
 
 <h2>🗓️ Datum der Meldung:</h2>
-<p>2026-08-31</p>
+<p>2026-08-24T08:18:16.070Z</p>
 
-
+<h2>📸 Screenshot der Mail:</h2><p><img src='reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
 
 <h2>Tags:</h2>
-<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>bank</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>dringend</span></p>
+<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>mail</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>kritisch</span></p>
 
 <hr />
-<p><strong>Status:</strong> aktiv</p>
+<p><strong>Status:</strong> open</p>
 ]]&gt;</content:encoded>
-      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 24 Aug 2026 08:18:16 GMT</pubDate>
       <guid>2026-08-001</guid>
-    </item>
-
-    <item>
-      <title>⚠️ 🎉 Du hast 1.000.000€ gewonnen!</title>
-      <description>Angriffstyp: spam
-Absender: winners@spam.xyz
-
-Beschreibung: Klassische Gewinn-Spam, Aufforderung zu Geldtransfer
-
-Datum: 2026-08-30
-Tags: spam, betrug
-Status: aktiv</description>
-      <content:encoded>&lt;![CDATA[
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>spam</strong></p>
-
-<h2>📧 Absender:</h2>
-<p>winners@spam.xyz</p>
-
-
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>Klassische Gewinn-Spam, Aufforderung zu Geldtransfer</p>
-
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>2026-08-30</p>
-
-
-
-<h2>Tags:</h2>
-<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>spam</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>betrug</span></p>
-
-<hr />
-<p><strong>Status:</strong> aktiv</p>
-]]&gt;</content:encoded>
-      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-      <guid>2026-08-002</guid>
     </item>
 
     <item>
