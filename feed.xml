@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meldungen verdächtiger E-Mails</title><link>https://github.com/dein-username/mail-reports</link><description>Zentrales Tracking von Phishing-, Spam- und Malware-Mails</description><language>de</language><lastBuildDate>Tue, 01 Sep 2026 09:14:57 +0000</lastBuildDate><item><title>[MAIL-PHISHING] Mail-Phishing</title><description>Von: Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;
-Typ: MAIL-PHISHING
-Status: open
+<rss version="2.0">
+  <channel>
+    <title>Sicherheitsmeldungen Feed</title>
+    <link>https://github.com/[dein-username]/[repo-name]</link>
+    <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
+    <language>de-de</language>
+        <item>
+      <title>⚠️ Mail-Phishing</title>
+      <description>&lt;![CDATA[
+<h2>⚠️ Angriffstyp:</h2>
+<p><strong>Mail-Phishing</strong></p>
 
-Der HTML-Code der Webseite wird sehr verschleiert dargestellt.
+<h2>📧 Absender:</h2>
+<p>Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;</p>
 
-Tags: phishing, mail, kritisch</description><pubDate>Tue, 01 Sep 2026 09:14:57 +0000</pubDate><guid isPermaLink="false">2026-08-001</guid><category>phishing</category><category>mail</category><category>kritisch</category></item></channel></rss>
+<h2>🔗 Gefährlicher Link:</h2><p><code>hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman</code></p>
+
+<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
+<p>Der HTML-Code der Webseite wird sehr verschleiert dargestellt.</p>
+<p><a href='https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1'>Mehr Infos auf VirusTotal</a></p>
+
+<h2>🗓️ Datum der Meldung:</h2>
+<p>2026-08-24T08:18:16.070Z</p>
+
+<h2>📸 Screenshot der Mail:</h2><p><img src='reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
+
+<h2>Tags:</h2>
+<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>mail</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>kritisch</span></p>
+
+<hr />
+<p><strong>Status:</strong> open</p>
+]]&gt;</description>
+      <pubDate>Mon, 24 Aug 2026 08:18:16 GMT</pubDate>
+      <guid>2026-08-001</guid>
+    </item>
+
+  </channel>
+</rss>
