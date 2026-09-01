@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meldungen verdächtiger E-Mails</title><link>https://github.com/dein-username/mail-reports</link><description>Zentrales Tracking von Phishing-, Spam- und Malware-Mails</description><language>de</language><lastBuildDate>Tue, 01 Sep 2026 08:32:25 +0000</lastBuildDate><item><title>[PHISHING] ⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto</title><description>Von: noreply@fake-bank.com
-Typ: PHISHING
-Status: aktiv
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meldungen verdächtiger E-Mails</title><link>https://github.com/dein-username/mail-reports</link><description>Zentrales Tracking von Phishing-, Spam- und Malware-Mails</description><language>de</language><lastBuildDate>Tue, 01 Sep 2026 09:14:57 +0000</lastBuildDate><item><title>[MAIL-PHISHING] Mail-Phishing</title><description>Von: Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;
+Typ: MAIL-PHISHING
+Status: open
 
-Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+Der HTML-Code der Webseite wird sehr verschleiert dargestellt.
 
-Tags: bank, phishing, dringend</description><pubDate>Mon, 31 Aug 2026 12:00:00 +0000</pubDate><guid isPermaLink="false">2026-08-001</guid><category>bank</category><category>phishing</category><category>dringend</category></item><item><title>[SPAM] 🎉 Du hast 1.000.000€ gewonnen!</title><description>Von: winners@spam.xyz
-Typ: SPAM
-Status: aktiv
-
-Klassische Gewinn-Spam, Aufforderung zu Geldtransfer
-
-Tags: spam, betrug</description><pubDate>Sun, 30 Aug 2026 12:00:00 +0000</pubDate><guid isPermaLink="false">2026-08-002</guid><category>spam</category><category>betrug</category></item></channel></rss>
+Tags: phishing, mail, kritisch</description><pubDate>Tue, 01 Sep 2026 09:14:57 +0000</pubDate><guid isPermaLink="false">2026-08-001</guid><category>phishing</category><category>mail</category><category>kritisch</category></item></channel></rss>
