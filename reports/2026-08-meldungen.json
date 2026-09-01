@@ -11,7 +11,7 @@
       "tags": ["phishing", "mail", "kritisch"],
       "gefaehrlicher_link": "hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman",
       "weitere_infos": "https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1",
-      "screenshot": "reports/screenshots/2026-08-001-mail.png"
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png"
     }
   ]
 }
