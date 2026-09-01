@@ -7,7 +7,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    <lastBuildDate>Tue, 01 Sep 2026 14:54:37 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 15:05:08 GMT</lastBuildDate>
     <item>
       <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
@@ -46,14 +46,14 @@
     <tr>
        <td>
            <strong>🔗 Gefährlicher Link </strong>(kann sich ggf. ändern)<br>
-           <code>  </code>
+           <code></code>
        </td>
     </tr>
 
     <tr>
        <td align="center">
            <img
-           src="  "
+           src=""
            width="600"
            alt="Screenshot der Phishing-Mail">
        </td>
@@ -128,24 +128,24 @@
     <tr>
        <td>
            <strong>🔗 Gefährlicher Link </strong>(kann sich ggf. ändern)<br>
-           <code> <p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
+           <code><p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
           <blockquote style="margin: 0 0 12px 24px; padding: 0;">
              hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman
           </blockquote>
-           </code>
+          </code>
        </td>
     </tr>
 
     <tr>
        <td align="center">
            <img
-           src=" <p><strong>Screenshot der Mail:</strong></p>
+           src="<p><strong>Screenshot der Mail:</strong></p>
           <p>
            <img
             src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png"
             alt="Screenshot"
             style="max-width:600px;" />
-          </p> "
+          </p>"
            width="600"
            alt="Screenshot der Phishing-Mail">
        </td>
