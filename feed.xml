@@ -27,5 +27,16 @@
       <guid>2026-08-002</guid>
     </item>
 
+    <item>
+      <title>⚠️ Dringende meldung eines gefälschten Kontos [phishing]</title>
+      <description><b>Absender:</b> noreply@fake-bank.com<br/>
+<b>Typ:</b> phishing<br/>
+<b>Beschreibung:</b> Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen<br/>
+<b>Status:</b> aktiv<br/>
+<b>Tags:</b> bank, phishing, dringend</description>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <guid>2026-08-101</guid>
+    </item>
+
   </channel>
 </rss>
