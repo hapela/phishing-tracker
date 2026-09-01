@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: 📥 Repository auschecken
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.0
 
       - name: 🐍 Python 3.11 einrichten
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.0
         with:
           python-version: '3.11'
 
@@ -35,5 +35,7 @@ jobs:
             echo "✅ Keine Änderungen an feed.xml"
           else
             git commit -m "🔄 RSS-Feed aktualisiert"
-            git push
+            git push origin main
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
