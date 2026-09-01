@@ -1,33 +1,39 @@
-name: 🔄 Generate RSS Feed
+name: Generate RSS Feed
 
 on:
   push:
     paths:
       - 'reports/**'
       - 'scripts/generate_rss.py'
-    branches:
-      - main
+      - '.github/workflows/generate-rss.yml'
   workflow_dispatch:
 
 jobs:
-  generate-rss:
+  generate:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+
     steps:
-      - name: ✅ Repository auschecken
+      - name: 📥 Repository auschecken
         uses: actions/checkout@v4
-      
+
       - name: 🐍 Python 3.11 einrichten
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: 📝 RSS-Feed generieren
         run: python scripts/generate_rss.py
-      
+
       - name: 📤 Änderungen committen und pushen
         run: |
-          git config user.name "RSS Feed Bot"
-          git config user.email "bot@noreply.github.com"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add feed.xml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 RSS-Feed aktualisiert" && git push)
+          if git diff --cached --quiet; then
+            echo "✅ Keine Änderungen an feed.xml"
+          else
+            git commit -m "🔄 RSS-Feed aktualisiert"
+            git push
+          fi
