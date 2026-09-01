@@ -2,23 +2,16 @@
   "meldungen": [
     {
       "id": "2026-08-001",
-      "datum": "2026-08-31",
-      "absender": "noreply@fake-bank.com",
-      "betreff": "⚠️ Dringende Sicherheitsmitteilung: Bestätige dein Konto",
-      "typ": "phishing",
-      "beschreibung": "Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen",
-      "status": "aktiv",
-      "tags": ["bank", "phishing", "dringend"]
-    },
-    {
-      "id": "2026-08-002",
-      "datum": "2026-08-30",
-      "absender": "winners@spam.xyz",
-      "betreff": "🎉 Du hast 1.000.000€ gewonnen!",
-      "typ": "spam",
-      "beschreibung": "Klassische Gewinn-Spam, Aufforderung zu Geldtransfer",
-      "status": "aktiv",
-      "tags": ["spam", "betrug"]
+      "datum": "2026-08-24T08:18:16.070Z",
+      "absender": "Buchhaltung <tegen.marthaloaiza047(at)casur.gov.co>",
+      "betreff": "Mail-Phishing",
+      "typ": "Mail-Phishing",
+      "beschreibung": "Der HTML-Code der Webseite wird sehr verschleiert dargestellt.",
+      "status": "open",
+      "tags": ["phishing", "mail", "kritisch"],
+      "gefaehrlicher_link": "hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman",
+      "weitere_infos": "https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1",
+      "screenshot": "reports/screenshots/2026-08-001-mail.png"
     }
   ]
 }
