@@ -3,49 +3,36 @@ import os
 from datetime import datetime
 from email.utils import formatdate
 
+# Verzeichnisse
 REPORTS_DIR = "reports"
 OUTPUT_FILE = "feed.xml"
 
+# RSS Feed Vorlage
 RSS_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Sicherheitsmeldungen Feed</title>
+    <title>Meldungen Feed</title>
     <link>https://github.com/[dein-username]/[repo-name]</link>
-    <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
+    <description>Automatisch generierter Feed aus JSON Reports</description>
     <language>de-de</language>
     {items}
   </channel>
 </rss>
 """
 
+# Item Template
 ITEM_TEMPLATE = """    <item>
       <title>{title}</title>
-      <description>&lt;![CDATA[{description}]]&gt;</description>
+      <description>{description}</description>
       <pubDate>{pubDate}</pubDate>
       <guid>{guid}</guid>
     </item>
 """
 
-def escape_html(text):
-    """Escapet HTML-Sonderzeichen"""
-    if not text:
-        return ""
-    return (text
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace('"', "&quot;")
-        .replace("'", "&#39;"))
-
 def convert_date_to_rfc2822(date_str):
-    """Konvertiert ISO 8601 oder YYYY-MM-DD zu RFC 2822 Format"""
+    """Konvertiert YYYY-MM-DD zu RFC 2822 Format"""
     try:
-        # ISO 8601 Format (z.B. 2026-08-24T08:18:16.070Z)
-        if "T" in date_str:
-            dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-        else:
-            # YYYY-MM-DD Format
-            dt = datetime.strptime(date_str, "%Y-%m-%d")
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
         return formatdate(timeval=dt.timestamp(), localtime=False, usegmt=True)
     except:
         return formatdate(localtime=False, usegmt=True)
@@ -54,6 +41,7 @@ def generate_rss():
     """Generiert RSS Feed aus JSON Dateien"""
     items = []
     
+    # Alle JSON-Dateien im reports/ Verzeichnis lesen
     if not os.path.exists(REPORTS_DIR):
         os.makedirs(REPORTS_DIR)
         return
@@ -69,7 +57,7 @@ def generate_rss():
                 meldungen = data.get("meldungen", [])
                 
                 for meldung in meldungen:
-                    # Felder extrahieren
+                    # Felder extrahieren (mit Defaults)
                     id_val = meldung.get("id", "unknown")
                     betreff = meldung.get("betreff", "")
                     typ = meldung.get("typ", "")
@@ -78,45 +66,44 @@ def generate_rss():
                     status = meldung.get("status", "")
                     tags = meldung.get("tags", [])
                     datum = meldung.get("datum", "")
-                    gefaehrlicher_link = meldung.get("gefaehrlicher_link", "")
-                    weitere_infos = meldung.get("weitere_infos", "")
-                    screenshot = meldung.get("screenshot", "")
                     
-                    # Title
-                    title = f"⚠️ {betreff}"
+                    # NEUE FELDER HIER EXTRAHIEREN
+                    priorität = meldung.get("priorität", "")
+                    zugeordnet_an = meldung.get("zugeordnet_an", "")
+                    link = meldung.get("link", "")
                     
-                    # HTML Description mit Emojis und Formatierung
-                    description = f"""
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>{escape_html(typ)}</strong></p>
-
-<h2>📧 Absender:</h2>
-<p>{escape_html(absender)}</p>
-
-{"<h2>🔗 Gefährlicher Link:</h2><p><code>" + escape_html(gefaehrlicher_link) + "</code></p>" if gefaehrlicher_link else ""}
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>{escape_html(beschreibung)}</p>
-{"<p><a href='" + escape_html(weitere_infos) + "'>Mehr Infos auf VirusTotal</a></p>" if weitere_infos else ""}
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>{escape_html(datum)}</p>
-
-{"<h2>📸 Screenshot der Mail:</h2><p><img src='" + escape_html(screenshot) + "' style='max-width: 600px; border: 1px solid #ccc;' /></p>" if screenshot else ""}
-
-<h2>Tags:</h2>
-<p>{", ".join([f"<span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>{escape_html(tag)}</span>" for tag in tags])}</p>
-
-<hr />
-<p><strong>Status:</strong> {escape_html(status)}</p>
-"""
+                    # Title zusammensetzen
+                    title = f"{betreff} [{typ}]"
+                    
+                    # Description mit NEUEN FELDERN zusammensetzen
+                    description_parts = []
+                    
+                    if absender:
+                        description_parts.append(f"<b>Absender:</b> {absender}")
+                    if typ:
+                        description_parts.append(f"<b>Typ:</b> {typ}")
+                    if beschreibung:
+                        description_parts.append(f"<b>Beschreibung:</b> {beschreibung}")
+                    if status:
+                        description_parts.append(f"<b>Status:</b> {status}")
+                    if priorität:
+                        description_parts.append(f"<b>Priorität:</b> {priorität}")
+                    if zugeordnet_an:
+                        description_parts.append(f"<b>Zugeordnet an:</b> {zugeordnet_an}")
+                    if link:
+                        description_parts.append(f"<b>Link:</b> <a href='{link}'>{link}</a>")
+                    if tags:
+                        tags_str = ", ".join(tags)
+                        description_parts.append(f"<b>Tags:</b> {tags_str}")
+                    
+                    description = "<br/>\n".join(description_parts)
                     
                     # Datum konvertieren
                     pubDate = convert_date_to_rfc2822(datum)
                     
                     # Item erstellen
                     item = ITEM_TEMPLATE.format(
-                        title=escape_html(title),
+                        title=title,
                         description=description,
                         pubDate=pubDate,
                         guid=id_val
@@ -124,7 +111,7 @@ def generate_rss():
                     items.append(item)
             
             except Exception as e:
-                print(f"❌ Fehler bei {filename}: {e}")
+                print(f"Fehler bei {filename}: {e}")
     
     # RSS-Datei schreiben
     rss_content = RSS_TEMPLATE.format(items="\n".join(items))
@@ -133,7 +120,7 @@ def generate_rss():
         f.write(rss_content)
     
     print(f"✅ RSS Feed generiert: {OUTPUT_FILE}")
-    print(f"✅ {len(items)} Meldungen verarbeitet")
+    print(f"✅ {len(items)} Items verarbeitet")
 
 if __name__ == "__main__":
     generate_rss()
