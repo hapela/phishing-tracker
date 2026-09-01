@@ -1,0 +1,14 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-08-101",
+      "datum": "2026-09-01",
+      "absender": "noreply@fake-bank.com",
+      "betreff": "⚠️ Dringende meldung eines gefälschten Kontos",
+      "typ": "phishing",
+      "beschreibung": "Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen",
+      "status": "aktiv",
+      "tags": ["bank", "phishing", "dringend"]
+    }
+  ]
+}  
