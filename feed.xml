@@ -1,37 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Sicherheitsmeldungen Feed</title>
+    <title>Meldungen Feed</title>
     <link>https://github.com/[dein-username]/[repo-name]</link>
-    <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
+    <description>Automatisch generierter Feed aus JSON Reports</description>
     <language>de-de</language>
         <item>
-      <title>⚠️ Mail-Phishing</title>
-      <description>&lt;![CDATA[
-<h2>⚠️ Angriffstyp:</h2>
-<p><strong>Mail-Phishing</strong></p>
-
-<h2>📧 Absender:</h2>
-<p>Buchhaltung &lt;tegen.marthaloaiza047(at)casur.gov.co&gt;</p>
-
-<h2>🔗 Gefährlicher Link:</h2><p><code>hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman</code></p>
-
-<h2>ℹ️ Weitere Informationen zur Meldung:</h2>
-<p>Der HTML-Code der Webseite wird sehr verschleiert dargestellt.</p>
-<p><a href='https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41?nocache=1'>Mehr Infos auf VirusTotal</a></p>
-
-<h2>🗓️ Datum der Meldung:</h2>
-<p>2026-08-24T08:18:16.070Z</p>
-
-<h2>📸 Screenshot der Mail:</h2><p><img src='reports/screenshots/2026-08-001-mail.png' style='max-width: 600px; border: 1px solid #ccc;' /></p>
-
-<h2>Tags:</h2>
-<p><span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>phishing</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>mail</span>, <span style='background: #e0e0e0; padding: 2px 6px; border-radius: 3px; margin-right: 4px;'>kritisch</span></p>
-
-<hr />
-<p><strong>Status:</strong> open</p>
-]]&gt;</description>
-      <pubDate>Mon, 24 Aug 2026 08:18:16 GMT</pubDate>
+      <title>Mail-Phishing [Mail-Phishing]</title>
+      <description><b>Absender:</b> Buchhaltung <tegen.marthaloaiza047(at)casur.gov.co><br/>
+<b>Typ:</b> Mail-Phishing<br/>
+<b>Beschreibung:</b> Der HTML-Code der Webseite wird sehr verschleiert dargestellt.<br/>
+<b>Status:</b> open<br/>
+<b>Tags:</b> phishing, mail, kritisch</description>
+      <pubDate>Tue, 01 Sep 2026 09:26:53 GMT</pubDate>
       <guid>2026-08-001</guid>
     </item>
 
