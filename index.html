@@ -12,14 +12,14 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
             border-radius: 10px;
@@ -37,11 +37,6 @@
         header h1 {
             font-size: 2em;
             margin-bottom: 10px;
-        }
-        
-        header p {
-            opacity: 0.9;
-            font-size: 0.95em;
         }
         
         .content {
@@ -74,26 +69,11 @@
             margin-top: 5px;
         }
         
-        .rss-link {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
-        .rss-link:hover {
-            background: #ff5252;
-        }
-        
         .filters {
-            margin-bottom: 20px;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
         
         .filter-btn {
@@ -104,13 +84,10 @@
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s;
+            font-weight: 500;
         }
         
-        .filter-btn.active {
-            background: #667eea;
-            color: white;
-        }
-        
+        .filter-btn.active,
         .filter-btn:hover {
             background: #667eea;
             color: white;
@@ -118,10 +95,10 @@
         
         .mail-item {
             border-left: 4px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             background: #f9f9f9;
-            border-radius: 5px;
+            border-radius: 8px;
             transition: all 0.3s;
         }
         
@@ -153,25 +130,24 @@
         .mail-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
-            margin-bottom: 10px;
+            align-items: center;
+            margin-bottom: 15px;
             flex-wrap: wrap;
             gap: 10px;
         }
         
         .mail-title {
-            font-size: 1.1em;
+            font-size: 1.3em;
             font-weight: bold;
             color: #333;
             flex: 1;
-            min-width: 200px;
         }
         
         .badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8em;
+            font-size: 0.85em;
             font-weight: bold;
             white-space: nowrap;
         }
@@ -196,22 +172,72 @@
             color: white;
         }
         
-        .mail-from {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 8px;
+        .mail-details {
+            background: rgba(255,255,255,0.6);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
         }
         
-        .mail-from strong {
+        .detail-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+            align-items: start;
+        }
+        
+        .detail-label {
+            font-weight: bold;
             color: #333;
+        }
+        
+        .detail-value {
+            color: #555;
+            word-break: break-all;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
         }
         
         .mail-description {
             color: #555;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .measures {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        
+        .measures h4 {
+            color: #2e7d32;
             margin-bottom: 10px;
-            white-space: pre-wrap;
-            word-break: break-word;
+            font-size: 0.95em;
+        }
+        
+        .measures ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .measures li {
+            padding: 5px 0;
+            color: #333;
+        }
+        
+        .measures li:before {
+            content: "✓ ";
+            color: #2e7d32;
+            font-weight: bold;
+            margin-right: 8px;
         }
         
         .mail-footer {
@@ -220,42 +246,29 @@
             align-items: center;
             font-size: 0.85em;
             color: #999;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
             flex-wrap: wrap;
             gap: 10px;
         }
         
-        .tags {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: #e0e0e0;
-            color: #333;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
+        .loading, .no-results, .error {
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
         }
         
         .loading {
-            text-align: center;
-            padding: 40px;
+            color: #999;
+        }
+        
+        .no-results {
             color: #999;
         }
         
         .error {
             background: #ffebee;
             color: #c62828;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 40px;
-            color: #999;
         }
         
         footer {
@@ -267,13 +280,18 @@
             border-top: 1px solid #eee;
         }
         
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
         @media (max-width: 600px) {
             header h1 {
                 font-size: 1.5em;
             }
             
-            .mail-header {
-                flex-direction: column;
+            .detail-row {
+                grid-template-columns: 1fr;
             }
             
             .stats {
@@ -290,8 +308,6 @@
         </header>
         
         <div class="content">
-            <a href="feed.xml" class="rss-link" target="_blank">📡 RSS-Feed abonnieren</a>
-            
             <div class="stats">
                 <div class="stat-box">
                     <div class="number" id="total-count">0</div>
@@ -324,8 +340,7 @@
         </div>
         
         <footer>
-            Zuletzt aktualisiert: <span id="last-update">lädt...</span> | 
-            <a href="https://github.com/dein-username/mail-reports" target="_blank">📌 GitHub Repository</a>
+            Zuletzt aktualisiert: <span id="last-update">lädt...</span>
         </footer>
     </div>
     
@@ -333,7 +348,6 @@
         let allMails = [];
         let currentFilter = 'all';
         
-        // RSS-Feed laden
         async function loadMails() {
             try {
                 const response = await fetch('feed.xml');
@@ -341,13 +355,11 @@
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
                 
-                // Fehlerbehandlung
                 if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
                     showError('Fehler beim Parsen des RSS-Feeds');
                     return;
                 }
                 
-                // Alle Items aus dem RSS-Feed extrahieren
                 const items = xmlDoc.querySelectorAll('item');
                 allMails = Array.from(items).map(item => {
                     const title = item.querySelector('title')?.textContent || '';
@@ -355,61 +367,95 @@
                     const pubDate = item.querySelector('pubDate')?.textContent || '';
                     const guid = item.querySelector('guid')?.textContent || '';
                     
-                    // Typ aus Titel extrahieren [PHISHING], [SPAM], etc.
+                    // Typ aus Titel extrahieren
                     let typ = 'info';
-                    if (title.includes('[PHISHING]')) typ = 'phishing';
-                    else if (title.includes('[SPAM]')) typ = 'spam';
-                    else if (title.includes('[MALWARE]')) typ = 'malware';
+                    if (title.includes('[PHISHING]') || title.toLowerCase().includes('phishing')) typ = 'phishing';
+                    else if (title.includes('[SPAM]') || title.toLowerCase().includes('spam')) typ = 'spam';
+                    else if (title.includes('[MALWARE]') || title.toLowerCase().includes('malware')) typ = 'malware';
+                    
+                    // Detaillierte Informationen aus der HTML-Tabelle extrahieren
+                    const details = extractDetails(description);
                     
                     return {
-                        title: title.replace(/\[.*?\]\s*/, ''),
-                        description,
+                        title: title.replace(/\[.*?\]\s*/, '').trim(),
+                        description: details.description,
                         pubDate: new Date(pubDate),
                         guid,
-                        typ
+                        typ,
+                        risiko: details.risiko,
+                        absender: details.absender,
+                        link: details.link,
+                        massnahmen: details.massnahmen
                     };
                 });
                 
-                // Sortieren nach Datum (neueste zuerst)
                 allMails.sort((a, b) => b.pubDate - a.pubDate);
-                
-                // Statistiken aktualisieren
                 updateStats();
-                
-                // Mails anzeigen
                 renderMails('all');
                 
-                // Letztes Update anzeigen
                 const lastBuildDate = xmlDoc.querySelector('lastBuildDate')?.textContent || '';
                 document.getElementById('last-update').textContent = lastBuildDate;
                 
             } catch (error) {
-                console.error('Fehler beim Laden:', error);
+                console.error('Fehler:', error);
                 showError('Fehler beim Laden des RSS-Feeds: ' + error.message);
             }
         }
         
-        // Statistiken aktualisieren
-        function updateStats() {
-            document.getElementById('total-count').textContent = allMails.length;
-            document.getElementById('phishing-count').textContent = 
-                allMails.filter(m => m.typ === 'phishing').length;
-            document.getElementById('spam-count').textContent = 
-                allMails.filter(m => m.typ === 'spam').length;
-            document.getElementById('malware-count').textContent = 
-                allMails.filter(m => m.typ === 'malware').length;
+        function extractDetails(htmlContent) {
+            const details = {
+                description: '',
+                risiko: '',
+                absender: '',
+                link: '',
+                massnahmen: []
+            };
+            
+            // Erstelle ein temporäres DOM-Element, um HTML zu parsen
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmlContent;
+            
+            // Extrahiere Risiko
+            const risikoMatch = htmlContent.match(/Risiko:<\/strong>\s*([^<]+)/);
+            if (risikoMatch) details.risiko = risikoMatch[1].trim();
+            
+            // Extrahiere Absender
+            const absenderMatch = htmlContent.match(/Absender\s*<\/strong>[^<]*<br>\s*📧\s*([^<]+)/);
+            if (absenderMatch) details.absender = absenderMatch[1].trim();
+            
+            // Extrahiere Link
+            const linkMatch = htmlContent.match(/blockquote[^>]*>\s*([^<]+)\s*<\/blockquote>/);
+            if (linkMatch) details.link = linkMatch[1].trim();
+            
+            // Extrahiere Beschreibung
+            const descMatch = htmlContent.match(/Beschreibung<\/strong><br>\s*ℹ\s*([^<]+)/);
+            if (descMatch) details.description = descMatch[1].trim();
+            
+            // Extrahiere Maßnahmen
+            const liMatches = htmlContent.match(/<li>([^<]+)<\/li>/g);
+            if (liMatches) {
+                details.massnahmen = liMatches.map(li => li.replace(/<[^>]+>/g, '').trim());
+            }
+            
+            return details;
         }
         
-        // Mails rendern
+        function updateStats() {
+            document.getElementById('total-count').textContent = allMails.length;
+            document.getElementById('phishing-count').textContent = allMails.filter(m => m.typ === 'phishing').length;
+            document.getElementById('spam-count').textContent = allMails.filter(m => m.typ === 'spam').length;
+            document.getElementById('malware-count').textContent = allMails.filter(m => m.typ === 'malware').length;
+        }
+        
         function renderMails(filter) {
             currentFilter = filter;
             const container = document.getElementById('mails-container');
             
-            // Filter anwenden
             const filtered = filter === 'all' ? allMails : allMails.filter(m => m.typ === filter);
             
             if (filtered.length === 0) {
-                container.innerHTML = '<div class="no-results">Keine Meldungen für diesen Filter gefunden.</div>';
+                container.
+innerHTML = '<div class="no-results">❌ Keine Meldungen für diesen Filter gefunden.</div>';
                 return;
             }
             
@@ -425,29 +471,72 @@
                         <div class="mail-title">${escapeHtml(mail.title)}</div>
                         <span class="badge ${mail.typ}">${mail.typ.toUpperCase()}</span>
                     </div>
-                    <div class="mail-description">${escapeHtml(mail.description)}</div>
-                    <div class="mail-footer">
-                        <span>📅 ${new Date(mail.pubDate).toLocaleDateString('de-DE', {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        })}</span>
-                        <span>ID: ${escapeHtml(mail.guid)}</span>
+                    
+                    <div class="mail-details">
+                        <div class="detail-row">
+                            <div class="detail-label">📊 Risiko:</div>
+                            <div class="detail-value"><strong>${escapeHtml(mail.risiko)}</strong></div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">📧 Absender:</div>
+                            <div class="detail-value">${escapeHtml(mail.absender)}</div>
+                        </div>
+                        
+                        ${mail.link ? `
+                            <div class="detail-row">
+                                <div class="detail-label">🔗 Gefährlicher Link:</div>
+                                <div class="detail-value">${escapeHtml(mail.link)}</div>
+                            </div>
+                        ` : ''}
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">📅 Datum:</div>
+                            <div class="detail-value">${formatDate(mail.pubDate)}</div>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">🆔 ID:</div>
+                            <div class="detail-value">${escapeHtml(mail.guid)}</div>
+                        </div>
                     </div>
+                    
+                    ${mail.description ? `
+                        <div class="mail-description">
+                            <strong>ℹ️ Beschreibung:</strong><br>
+                            ${escapeHtml(mail.description)}
+                        </div>
+                    ` : ''}
+                    
+                    ${mail.massnahmen.length > 0 ? `
+                        <div class="measures">
+                            <h4>🎯 Empfohlene Maßnahmen:</h4>
+                            <ul>
+                                ${mail.massnahmen.map(m => `<li>${escapeHtml(m)}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
                 </div>
             `).join('');
         }
         
-        // Error anzeigen
+        function formatDate(date) {
+            return new Intl.DateTimeFormat('de-DE', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(date);
+        }
+        
         function showError(message) {
             const container = document.getElementById('mails-container');
             container.innerHTML = `<div class="error">❌ ${escapeHtml(message)}</div>`;
         }
         
-        // HTML-Injection verhindern
         function escapeHtml(text) {
+            if (!text) return '';
             const map = {
                 '&': '&amp;',
                 '<': '&lt;',
@@ -458,7 +547,7 @@
             return text.replace(/[&<>"']/g, m => map[m]);
         }
         
-        // Filter-Buttons Event-Listener
+        // Filter-Button Event-Listener
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 renderMails(btn.dataset.filter);
@@ -470,4 +559,3 @@
     </script>
 </body>
 </html>
-
