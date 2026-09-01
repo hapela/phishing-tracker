@@ -28,34 +28,80 @@ ITEM_TEMPLATE = """    <item>
       <pubDate>{pubDate}</pubDate>
       <guid>{guid}</guid>
       <description>
-        <![CDATA[<div style="font-family: Arial, sans-serif; color: #111; line-height: 1.6;">
-          
-          <p><h2>🚨 Warnung </h2> </p>
-          
-          <p style="margin: 0 0 8px 0;"><strong>⚠️ Angriffsart:</strong></p>
-          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
-              {typ}
-          </blockquote>
-          
-          <p style="margin: 0 0 8px 0;"><strong>📧 Absender:</strong></p>
-          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
-              {absender}
-          </blockquote>
-          
-          {gefaehrlicher_link_block}
-          
-          <p style="margin: 0 0 8px 0;"><strong>ℹ️ Weitere Informationen zur Meldung:</strong></p>
-          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
-              {beschreibung}
-          </blockquote>
+<![CDATA[
+<table width="100%" cellpadding="10" cellspacing="0" border="0" 
+       style="font-family:Segoe UI,Arial,sans-serif;border:1px solid #cccccc;">
+    <tr>
+       <td bgcolor="#c62828" style="color:white;font-size:22px;font-weight:bold;">
+        🚨 SICHERHEITSWARNUNG
+       </td>
+    </tr>
 
-          <p style="margin: 0 0 8px 0;"><strong>🗓️ Datum der Meldung:</strong></p>
-          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
-              {datum}
-          </blockquote>
-          
-          {screenshot_block}
-        ]]>
+    <tr>
+       <td>
+           <h2 style="margin:0;"> {typ} </h2>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#fff4e5">
+           <strong>Risiko:</strong> KRITISCH<br>
+           <strong>Datum:</strong> {datum} <br>
+           <strong>gemeldet von: </strong> Heinz Herrmann
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>📧 Absender </strong> (kann sich ggf. ändern)<br>
+           {absender}
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>🔗 Gefährlicher Link </strong>(kann sich ggf. ändern)<br>
+           <code>{gefaehrlicher_link_block}</code>
+       </td>
+    </tr>
+
+    <tr>
+       <td align="center">
+           <img
+           src="{screenshot_block}"
+           width="600"
+           alt="Screenshot der Phishing-Mail">
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>ℹ Beschreibung</strong><br>
+           {beschreibung}
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#e8f5e9">
+           <strong>ℹ Weitere Infos zu dieser Meldung</strong><br>
+           <a href="https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41">
+              bei VirusTotal öffnen
+           </a>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#f5f5f5">
+           <strong>🎯 Empfohlene Maßnahmen</strong>
+           </li>
+             <li>Mail umgehend löschen</li>
+             <li>IT-Security informieren</li>
+           </ul>
+       </td>
+    </tr>
+
+</table>
+]]>
       </description>
     </item>
 """
