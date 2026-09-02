@@ -7,7 +7,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    <lastBuildDate>Wed, 02 Sep 2026 08:07:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 14:59:43 GMT</lastBuildDate>
     <item>
       <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
@@ -59,6 +59,94 @@
        <td>
            <strong>ℹ Beschreibung</strong><br>
            Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#e8f5e9">
+           <strong>ℹ Weitere Infos zu dieser Meldung</strong><br>
+           <a href="https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41">
+              bei VirusTotal öffnen
+           </a>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#f5f5f5">
+           <strong>🎯 Empfohlene Maßnahmen</strong>
+           </li>
+             <li>Mail umgehend löschen</li>
+             <li>IT-Security informieren</li>
+           </ul>
+       </td>
+    </tr>
+
+</table>
+]]>
+      </description>
+    </item>
+
+    <item>
+      <title>Das ist ein Test</title>
+      <pubDate>Wed, 02 Sep 2026 11:53:00 GMT</pubDate>
+      <guid>2026-09-02-4558</guid>
+      <description>
+<![CDATA[
+<table width="100%" cellpadding="10" cellspacing="0" border="0" 
+       style="font-family:Segoe UI,Arial,sans-serif;border:1px solid #cccccc;">
+    <tr>
+       <td bgcolor="#c62828" style="color:white;font-size:22px;font-weight:bold;">
+        🚨 SICHERHEITSWARNUNG
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <h2 style="margin:0;"> Mail-Phishing </h2>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#fff4e5">
+           <strong>Risiko:</strong> KRITISCH<br>
+           <strong>Datum:</strong> 2026-09-02T11:53:00.000Z <br>
+           <strong>gemeldet von: </strong> Heinz Herrmann
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>📧 Absender </strong> (kann sich ggf. ändern)<br>
+           Tester@test.de
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+             google.de
+          </blockquote>
+          
+       </td>
+    </tr>
+
+    <tr>
+       <td align="center">
+           <p><strong>Screenshot der Mail:</strong></p>
+          <p>
+           <img
+            src="https://hapela.github.io/phishing-tracker/reports/2026-09-02-4558.png"
+            alt="Screenshot"
+            style="max-width:600px;" />
+          </p>
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>ℹ Beschreibung</strong><br>
+           Ich habe aktuell keine Bessere Beschreibung
        </td>
     </tr>
 
