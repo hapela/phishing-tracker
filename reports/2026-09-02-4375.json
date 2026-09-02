@@ -1,0 +1,17 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-02-4375",
+      "datum": "2026-09-02T08:18:16.070Z",
+      "absender": "ChatGPT Plus <prussle=gmailold.com@hubspotfree.eu1.hs-send.com>",
+      "betreff": "Verlieren Sie nicht den Zugriff auf ChatGPT Plus",
+      "typ": "Mail-Phishing",
+      "beschreibung": "Der Link führt über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (<!--[if gte mso 9]>,  <!--[if mso]>)",
+      "status": "open",
+      "tags": ["phishing", "mail", "kritisch"],
+      "gefaehrlicher_link": "https://dkyxg304.eu1.hubspotlinksfree.com/Ctc/UG+113/dkyxg304/......",
+      "weitere_infos": "",
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/screenshots/2026-09-02-4375.png"
+    }
+  ]
+}
