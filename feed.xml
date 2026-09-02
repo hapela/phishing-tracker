@@ -7,7 +7,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    <lastBuildDate>Wed, 02 Sep 2026 08:02:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 08:07:04 GMT</lastBuildDate>
     <item>
       <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
@@ -146,7 +146,7 @@
     <tr>
        <td>
            <strong>ℹ Beschreibung</strong><br>
-           Der Link führt über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (&lt;!--[if gte mso 9]&gt;,  &lt;!--[if mso]&gt;)
+           Der Link wird über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (&lt;!--[if gte mso 9]&gt;,  &lt;!--[if mso]&gt;)
        </td>
     </tr>
 
