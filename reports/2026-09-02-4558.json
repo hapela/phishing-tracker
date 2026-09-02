@@ -1,0 +1,17 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-02-4558",
+      "datum": "2026-09-02T11:53:00.000Z",
+      "absender": "Tester@test.de",
+      "betreff": "Das ist ein Test",
+      "typ": "Mail-Phishing",
+      "beschreibung": "Ich habe aktuell keine Bessere Beschreibung",
+      "status": "open",
+      "tags": [],
+      "gefaehrlicher_link": "google.de",
+      "weitere_infos": "keine weiteren Infos",
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/2026-09-02-4558.png"
+    }
+  ]
+}
