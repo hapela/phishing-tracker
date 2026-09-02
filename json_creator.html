@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Meldungs-Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .screenshot-box {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .screenshot-box:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .screenshot-box p {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        #screenshotPreview {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-reset {
+            background: #eee;
+            color: #666;
+        }
+
+        .btn-reset:hover {
+            background: #ddd;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .tags-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            min-height: 40px;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            font-size: 16px;
+            display: flex;
+        }
+
+        #tagInput {
+            flex: 1;
+            border: none;
+            min-width: 100px;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        #tagInput:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Phishing Meldungs-Tracker</h1>
+        
+        <form id="meldungForm">
+            <!-- Datum & Uhrzeit -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="datum">Datum *</label>
+                    <input type="date" id="datum" required>
+                </div>
+                <div class="form-group">
+                    <label for="uhrzeit">Uhrzeit *</label>
+                    <input type="time" id="uhrzeit" required>
+                </div>
+            </div>
+
+            <!-- Absender & Betreff -->
+            <div class="form-group">
+                <label for="absender">Absender *</label>
+                <input type="text" id="absender" placeholder="z.B. ChatGPT Plus <...@example.com>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="betreff">Betreff *</label>
+                <input type="text" id="betreff" placeholder="z.B. Verlieren Sie nicht den Zugriff auf ChatGPT Plus" required>
+            </div>
+
+            <!-- Typ & Status -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="typ">Typ *</label>
+                    <select id="typ" required>
+                        <option value="">-- Wählen --</option>
+                        <option value="Mail-Phishing">Mail-Phishing</option>
+                        <option value="SMS-Phishing">SMS-Phishing</option>
+                        <option value="Website-Phishing">Website-Phishing</option>
+                        <option value="Identitätsdiebstahl">Identitätsdiebstahl</option>
+                        <option value="Malware">Malware</option>
+                        <option value="Social Engineering">Social Engineering</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status *</label>
+                    <select id="status" required>
+                        <option value="">-- Wählen --</option>
+                        <option value="open">open</option>
+                        <option value="in progress">in progress</option>
+                        <option value="closed">closed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Beschreibung -->
+            <div class="form-group">
+                <label for="beschreibung">Beschreibung *</label>
+                <textarea id="beschreibung" placeholder="Detaillierte Beschreibung der Bedrohung..." required></textarea>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+                <label>Tags</label>
+                <div class="tags-input" id="tagsContainer">
+                    <input type="text" id="tagInput" placeholder="Tag eingeben + Enter">
+                </div>
+            </div>
+
+            <!-- Gefährlicher Link -->
+            <div class="form-group">
+                <label for="gefaehrlicher_link">Gefährlicher Link *</label>
+                <input type="text" id="gefaehrlicher_link" placeholder="https://..." required>
+            </div>
+
+            <!-- Weitere Infos -->
+            <div class="form-group">
+                <label for="weitere_infos">Weitere Infos</label>
+                <textarea id="weitere_infos" placeholder="Zusätzliche Anmerkungen..."></textarea>
+            </div>
+
+            <!-- Screenshot -->
+            <div class="form-group">
+                <label>Screenshot (Strg+V zum Einfügen) *</label>
+                <div class="screenshot-box" id="screenshotBox">
+                    <p>🖼️ Screenshot hier einfügen (Strg+V)</p>
+                    <img id="screenshotPreview" alt="Screenshot Preview">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit" class="btn-submit">💾 Download (JSON + PNG)</button>
+                <button type="reset" class="btn-reset">🔄 Zurücksetzen</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✅ Dateien erfolgreich generiert! JSON und PNG wurden heruntergeladen.
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        let screenshotBlob = null;
+        let tags = [];
+
+        // Screenshot via Strg+V einfügen
+        document.addEventListener('paste', (e) => {
+            const items = e.clipboardData.items;
+            for (let item of items) {
+                if (item.type.indexOf('image') === 0) {
+                    const blob = item.getAsFile();
+                    screenshotBlob = blob;
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const preview = document.getElementById('screenshotPreview');
+                        preview.src = event.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(blob);
+                    e.preventDefault();
+                }
+            }
+        });
+
+        // Tags Management
+        document.getElementById('tagInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const input = e.target;
+                const tag = input.value.trim();
+                if (tag && !tags.includes(tag)) {
+                    tags.push(tag);
+                    renderTags();
+                    input.value = '';
+                }
+            }
+        });
+
+        function renderTags() {
+            const container = document.getElementById('tagsContainer');
+            const input = document.getElementById('tagInput');
+            
+            // Remove existing tags
+            container.querySelectorAll('.tag').forEach(el => el.remove());
+            
+            // Add tags
+            tags.forEach(tag => {
+                const tagEl = document.createElement('div');
+                tagEl.className = 'tag';
+                tagEl.innerHTML = `
+                    ${tag}
+                    <button type="button">×</button>
+                `;
+                tagEl.querySelector('button').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    tags = tags.filter(t => t !== tag);
+                    renderTags();
+                });
+                container.insertBefore(tagEl, input);
+            });
+        }
+
+        // Form Submit
+        document.getElementById('meldungForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const errorMsg = document.getElementById('errorMessage');
+            const successMsg = document.getElementById('successMessage');
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+
+            // Validierung
+            if (!screenshotBlob) {
+                errorMsg.textContent = '❌ Fehler: Screenshot erforderlich (Strg+V)';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            try {
+                // Daten sammeln
+                const datum = document.getElementById('datum').value;
+                const uhrzeit = document.getElementById('uhrzeit').value;
+                const absender = document.getElementById('absender').value;
+                const betreff = document.getElementById('betreff').value;
+                const typ = document.getElementById('typ').value;
+                const beschreibung = document.getElementById('beschreibung').value;
+                const status = document.getElementById('status').value;
+                const gefaehrlicher_link = document.getElementById('gefaehrlicher_link').value;
+                const weitere_infos = document.getElementById('weitere_infos').value;
+
+                // ID generieren (datum-vierstelligeZufallszahl)
+                const randomNum = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+                const id = `${datum}-${randomNum}`;
+
+                // Datum/Uhrzeit kombinieren (ISO 8601)
+                const fullDateTime = new Date(`${datum}T${uhrzeit}`).toISOString();
+
+                // JSON generieren
+                const meldung = {
+                    meldungen: [
+                        {
+                            id: id,
+                            datum: fullDateTime,
+                            absender: absender,
+                            betreff: betreff,
+                            typ: typ,
+                            beschreibung: beschreibung,
+                            status: status,
+                            tags: tags.length > 0 ? tags : [],
+                            gefaehrlicher_link: gefaehrlicher_link,
+                            weitere_infos: weitere_infos,
+                            screenshot: `${id}.png`
+                        }
+                    ]
+                };
+
+                // JSON Download
+                const jsonString = JSON.stringify(meldung, null, 2);
+                const jsonBlob = new Blob([jsonString], { type: 'application/json' });
+                downloadFile(jsonBlob, `${id}.json`);
+
+                // PNG Download
+                downloadFile(screenshotBlob, `${id}.png`);
+
+                // Success Message
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('meldungForm').reset();
+                    screenshotBlob = null;
+                    tags = [];
+                    renderTags();
+                    document.getElementById('screenshotPreview').style.display = 'none';
+                    successMsg.style.display = 'none';
+                }, 3000);
+
+            } catch (error) {
+                errorMsg.textContent = `❌ Fehler: ${error.message}`;
+                errorMsg.style.display = 'block';
+            }
+        });
+
+        // Download Helper
+        function downloadFile(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
+
