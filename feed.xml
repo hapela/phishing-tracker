@@ -7,7 +7,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    <lastBuildDate>Wed, 02 Sep 2026 07:22:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 07:35:28 GMT</lastBuildDate>
     <item>
       <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
@@ -63,6 +63,98 @@
        <td>
            <strong>ℹ Beschreibung</strong><br>
            Gefälschte Login-Seite, versucht Zugangsdaten zu stehlen
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#e8f5e9">
+           <strong>ℹ Weitere Infos zu dieser Meldung</strong><br>
+           <a href="https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41">
+              bei VirusTotal öffnen
+           </a>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#f5f5f5">
+           <strong>🎯 Empfohlene Maßnahmen</strong>
+           </li>
+             <li>Mail umgehend löschen</li>
+             <li>IT-Security informieren</li>
+           </ul>
+       </td>
+    </tr>
+
+</table>
+]]>
+      </description>
+    </item>
+
+    <item>
+      <title>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</title>
+      <pubDate>Wed, 02 Sep 2026 08:18:16 GMT</pubDate>
+      <guid>2026-09-02-4375</guid>
+      <description>
+<![CDATA[
+<table width="100%" cellpadding="10" cellspacing="0" border="0" 
+       style="font-family:Segoe UI,Arial,sans-serif;border:1px solid #cccccc;">
+    <tr>
+       <td bgcolor="#c62828" style="color:white;font-size:22px;font-weight:bold;">
+        🚨 SICHERHEITSWARNUNG
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <h2 style="margin:0;"> Mail-Phishing </h2>
+       </td>
+    </tr>
+
+    <tr>
+       <td bgcolor="#fff4e5">
+           <strong>Risiko:</strong> KRITISCH<br>
+           <strong>Datum:</strong> 2026-09-02T08:18:16.070Z <br>
+           <strong>gemeldet von: </strong> Heinz Herrmann
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>📧 Absender </strong> (kann sich ggf. ändern)<br>
+           ChatGPT Plus &lt;prussle=gmailold.com@hubspotfree.eu1.hs-send.com&gt;
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>🔗 Gefährlicher Link </strong>(kann sich ggf. ändern)<br>
+           <code><p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
+          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
+             https://dkyxg304.eu1.hubspotlinksfree.com/Ctc/UG+113/dkyxg304/......
+          </blockquote>
+          </code>
+       </td>
+    </tr>
+
+    <tr>
+       <td align="center">
+           <img
+           src="<p><strong>Screenshot der Mail:</strong></p>
+          <p>
+           <img
+            src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-09-02-4375.png"
+            alt="Screenshot"
+            style="max-width:600px;" />
+          </p>"
+           width="600"
+           alt="Screenshot der Phishing-Mail">
+       </td>
+    </tr>
+
+    <tr>
+       <td>
+           <strong>ℹ Beschreibung</strong><br>
+           Der Link führt über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (&lt;!--[if gte mso 9]&gt;,  &lt;!--[if mso]&gt;)
        </td>
     </tr>
 
