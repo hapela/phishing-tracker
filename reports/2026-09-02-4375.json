@@ -6,7 +6,7 @@
       "absender": "ChatGPT Plus <prussle=gmailold.com@hubspotfree.eu1.hs-send.com>",
       "betreff": "Verlieren Sie nicht den Zugriff auf ChatGPT Plus",
       "typ": "Mail-Phishing",
-      "beschreibung": "Der Link führt über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (<!--[if gte mso 9]>,  <!--[if mso]>)",
+      "beschreibung": "Der Link wird über einen Dienst von HubSpot bereitgestellt und ist nicht direkt nachvollziehbar, ohne ein Tracking zu erzeugen. Außerdem ist im Quelltext der Mail zu erkennen, dass sich bei unterschiedlichen Browsern die Darstellung und das Verhalten verändert. (<!--[if gte mso 9]>,  <!--[if mso]>)",
       "status": "open",
       "tags": ["phishing", "mail", "kritisch"],
       "gefaehrlicher_link": "https://dkyxg304.eu1.hubspotlinksfree.com/Ctc/UG+113/dkyxg304/......",
