@@ -60,17 +60,13 @@ ITEM_TEMPLATE = """    <item>
 
     <tr>
        <td>
-           <strong>🔗 Gefährlicher Link </strong>(kann sich ggf. ändern)<br>
-           <code>{gefaehrlicher_link_block}</code>
+           {gefaehrlicher_link_block}
        </td>
     </tr>
 
     <tr>
        <td align="center">
-           <img
-           src="{screenshot_block}"
-           width="600"
-           alt="Screenshot der Phishing-Mail">
+           {screenshot_block}
        </td>
     </tr>
 
