@@ -1,10 +1,11 @@
-# RSS Feed Generator für JSON Reports
+# RSS Feed Generator um informationen über schadhafte Mails über RSS-Feeds zu verteilen.
 
 Automatisierte Generierung eines RSS-Feeds aus JSON-Berichten mittels GitHub Actions.
 
 ## Übersicht
 
-Dieses Projekt konvertiert strukturierte JSON-Dateien in deinem `reports/`-Verzeichnis automatisch in einen standardkonformen RSS 2.0 Feed (`feed.xml`). Der Prozess läuft vollautomatisch über GitHub Actions und wird bei jedem Push getriggert.
+Dieses Projekt konvertiert strukturierte JSON-Dateien in deinem `reports/`-Verzeichnis automatisch in einen standardkonformen RSS 2.0 Feed (`feed.xml`). 
+Der Prozess läuft vollautomatisch über GitHub Actions und wird bei jedem Push getriggert.
 
 
 ## Features
