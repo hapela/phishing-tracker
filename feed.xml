@@ -7,7 +7,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
     <language>de-de</language>
-    <lastBuildDate>Sun, 06 Sep 2026 21:50:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 21:51:27 GMT</lastBuildDate>
     <item>
       <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
@@ -89,7 +89,7 @@
     <item>
       <title>Das ist ein Test</title>
       <pubDate>Wed, 02 Sep 2026 11:53:00 GMT</pubDate>
-      <guid>2026-09-02-4558</guid>
+      <guid>2026-09-02-4558-1</guid>
       <description>
 <![CDATA[
 <table width="100%" cellpadding="10" cellspacing="0" border="0" 
