@@ -1,0 +1,17 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-10-6780",
+      "datum": "2026-09-10T01:08:00.000Z",
+      "absender": "CommerzBank <webmaster@4623e6f17e.nxcli.io>",
+      "betreff": "Erforderliche Maßnahme: Schließen Sie die Identitätsprüfung ab.",
+      "typ": "Mail-Phishing",
+      "beschreibung": "-",
+      "status": "open",
+      "tags": [],
+      "gefaehrlicher_link": "https://notifications.googleapis.com/email/redirect?t=....&s=......",
+      "weitere_infos": "",
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/2026-09-10-6780.png"
+    }
+  ]
+}
