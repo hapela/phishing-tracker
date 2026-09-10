@@ -1,0 +1,17 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-08-0675",
+      "datum": "2026-09-08T10:24:00.000Z",
+      "absender": "Telekom Deutschland GmbH <info@tenshoku-shigoto.com>",
+      "betreff": "EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026",
+      "typ": "Mail-Phishing",
+      "beschreibung": "-",
+      "status": "open",
+      "tags": [],
+      "gefaehrlicher_link": "hxxps://rw.xnybex.net/Tyre_24_Rechnung_[....]_08.09.2026.zip",
+      "weitere_infos": "",
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/2026-09-08-0675.png"
+    }
+  ]
+}
