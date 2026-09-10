@@ -1,0 +1,17 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-06-0506",
+      "datum": "2026-09-06T09:58:00.000Z",
+      "absender": "MeinEIster <egodinezh1@miumg.edu.gt>",
+      "betreff": "Ihre Steuerrückerstattung wartet auf Bestätigung",
+      "typ": "Mail-Phishing",
+      "beschreibung": "-",
+      "status": "open",
+      "tags": [],
+      "gefaehrlicher_link": "hxxps[:]//www.google.com/share.google?q=BDAWFBlvI85SDJzoN",
+      "weitere_infos": "",
+      "screenshot": "https://hapela.github.io/phishing-tracker/reports/2026-09-06-0506.png"
+    }
+  ]
+}
