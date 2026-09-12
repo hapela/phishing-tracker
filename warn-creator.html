@@ -1,471 +1,596 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Meldungs-Tracker</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+  <title>Sicherheitsmeldung erstellen</title>
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-        }
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #dbe3ee;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --danger: #dc2626;
+      --success: #15803d;
+      --radius: 18px;
+    }
 
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 28px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: 600;
-            font-size: 14px;
-        }
+    .page {
+      width: min(1100px, calc(100% - 32px));
+      margin: 40px auto;
+    }
 
-        input[type="text"],
-        input[type="datetime-local"],
-        input[type="date"],
-        input[type="time"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
+    .header {
+      margin-bottom: 24px;
+    }
 
-        input[type="text"]:focus,
-        input[type="datetime-local"]:focus,
-        input[type="date"]:focus,
-        input[type="time"]:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
 
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
+    .header p {
+      margin: 0;
+      color: var(--muted);
+    }
 
-        .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+    .card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(219, 227, 238, 0.9);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
+      padding: clamp(20px, 4vw, 40px);
+    }
 
-        .screenshot-box {
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            background: #f9f9f9;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+    .section {
+      margin-bottom: 30px;
+    }
 
-        .screenshot-box:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
+    .section h2 {
+      margin: 0 0 16px;
+      font-size: 1.15rem;
+    }
 
-        .screenshot-box p {
-            color: #999;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
 
-        #screenshotPreview {
-            max-width: 100%;
-            max-height: 200px;
-            border-radius: 6px;
-            margin-top: 10px;
-            display: none;
-        }
+    .full {
+      grid-column: 1 / -1;
+    }
 
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-        }
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #334155;
+      font-size: .9rem;
+      font-weight: 700;
+    }
 
-        button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 12px 14px;
+      color: var(--text);
+      background: #fff;
+      font: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
 
-        .btn-submit {
-            background: #667eea;
-            color: white;
-        }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+    }
 
-        .btn-submit:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
 
-        .btn-reset {
-            background: #eee;
-            color: #666;
-        }
+    .hint {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
 
-        .btn-reset:hover {
-            background: #ddd;
-        }
+    .dropzone {
+      border: 2px dashed #b8c5d8;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      background: #f8fafc;
+      transition: .2s;
+    }
 
-        .success-message {
-            display: none;
-            background: #4caf50;
-            color: white;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 20px;
-            text-align: center;
-        }
+    .dropzone:hover,
+    .dropzone.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+    }
 
-        .error-message {
-            display: none;
-            background: #f44336;
-            color: white;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 20px;
-            text-align: center;
-        }
+    .dropzone strong {
+      display: block;
+      margin-bottom: 6px;
+    }
 
-        .tags-input {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 8px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            min-height: 40px;
-        }
+    #preview {
+      display: none;
+      width: min(100%, 650px);
+      max-height: 340px;
+      object-fit: contain;
+      margin: 18px auto 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, .16);
+    }
 
-        .tag {
-            background: #667eea;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
 
-        .tag button {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 0;
-            font-size: 16px;
-            display: flex;
-        }
+    button {
+      border: 0;
+      border-radius: 11px;
+      padding: 13px 18px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s;
+    }
 
-        #tagInput {
-            flex: 1;
-            border: none;
-            min-width: 100px;
-            padding: 0;
-            font-size: 14px;
-        }
+    button:hover {
+      transform: translateY(-1px);
+    }
 
-        #tagInput:focus {
-            outline: none;
-        }
-    </style>
+    .primary {
+      color: white;
+      background: var(--primary);
+    }
+
+    .primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .secondary {
+      color: #334155;
+      background: #e2e8f0;
+    }
+
+    .folder {
+      color: #1e3a8a;
+      background: #dbeafe;
+    }
+
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 11px;
+      font-weight: 700;
+    }
+
+    .message.success {
+      display: block;
+      color: #166534;
+      background: #dcfce7;
+    }
+
+    .message.error {
+      display: block;
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: min(100% - 20px, 1100px);
+        margin: 20px auto;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>📧 Phishing Meldungs-Tracker</h1>
-        
-        <form id="meldungForm">
-            <!-- Datum & Uhrzeit -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="datum">Datum *</label>
-                    <input type="date" id="datum" required>
-                </div>
-                <div class="form-group">
-                    <label for="uhrzeit">Uhrzeit *</label>
-                    <input type="time" id="uhrzeit" required>
-                </div>
+  <main class="page">
+    <header class="header">
+      <h1>Sicherheitsmeldung erstellen</h1>
+      <p>JSON-Report und Screenshot für den Sicherheitsmeldungs-Tracker erstellen.</p>
+    </header>
+
+    <section class="card">
+      <form id="meldungForm">
+        <div class="section">
+          <h2>Allgemeine Informationen</h2>
+
+          <div class="grid">
+            <div>
+              <label for="id">ID</label>
+              <input id="id" name="id" type="text">
             </div>
 
-            <!-- Absender & Betreff -->
-            <div class="form-group">
-                <label for="absender">Absender *</label>
-                <input type="text" id="absender" placeholder="z.B. ChatGPT Plus <...@example.com>" required>
+            <div>
+              <label for="melder">Melder</label>
+              <input id="melder" name="melder" type="text" required>
             </div>
 
-            <div class="form-group">
-                <label for="betreff">Betreff *</label>
-                <input type="text" id="betreff" placeholder="z.B. Verlieren Sie nicht den Zugriff auf ChatGPT Plus" required>
+            <div>
+              <label for="datum_meldung">Datum der Meldung</label>
+              <input id="datum_meldung" name="datum_meldung" type="datetime-local" required>
             </div>
 
-            <!-- Typ & Status -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="typ">Typ *</label>
-                    <select id="typ" required>
-                        <option value="">-- Wählen --</option>
-                        <option value="Mail-Phishing">Mail-Phishing</option>
-                        <option value="SMS-Phishing">SMS-Phishing</option>
-                        <option value="Website-Phishing">Website-Phishing</option>
-                        <option value="Identitätsdiebstahl">Identitätsdiebstahl</option>
-                        <option value="Malware">Malware</option>
-                        <option value="Social Engineering">Social Engineering</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="status">Status *</label>
-                    <select id="status" required>
-                        <option value="">-- Wählen --</option>
-                        <option value="open">open</option>
-                        <option value="in progress">in progress</option>
-                        <option value="closed">closed</option>
-                    </select>
-                </div>
+            <div>
+              <label for="datum_mail">Datum der E-Mail</label>
+              <input id="datum_mail" name="datum_mail" type="datetime-local">
             </div>
 
-            <!-- Beschreibung -->
-            <div class="form-group">
-                <label for="beschreibung">Beschreibung *</label>
-                <textarea id="beschreibung" placeholder="Detaillierte Beschreibung der Bedrohung..." required></textarea>
+            <div>
+              <label for="status">Status</label>
+              <select id="status" name="status" required>
+                <option value="open">Offen</option>
+                <option value="in_progress">In Bearbeitung</option>
+                <option value="closed">Geschlossen</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>E-Mail-Daten</h2>
+
+          <div class="grid">
+            <div>
+              <label for="absender">Absender</label>
+              <input id="absender" name="absender" type="text" required>
             </div>
 
-            <!-- Tags -->
-            <div class="form-group">
-                <label>Tags</label>
-                <div class="tags-input" id="tagsContainer">
-                    <input type="text" id="tagInput" placeholder="Tag eingeben + Enter">
-                </div>
+            <div>
+              <label for="betreff">Betreff</label>
+              <input id="betreff" name="betreff" type="text" required>
             </div>
 
-            <!-- Gefährlicher Link -->
-            <div class="form-group">
-                <label for="gefaehrlicher_link">Gefährlicher Link *</label>
-                <input type="text" id="gefaehrlicher_link" placeholder="https://..." required>
+            <div class="full">
+              <label for="gefaehrlicher_link">Gefährlicher Link</label>
+              <input id="gefaehrlicher_link" name="gefaehrlicher_link" type="url">
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Beschreibungen</h2>
+
+          <div class="grid">
+            <div>
+              <label for="beschreibung_ISB">Beschreibung für ISB</label>
+              <textarea id="beschreibung_ISB" name="beschreibung_ISB"></textarea>
             </div>
 
-            <!-- Weitere Infos -->
-            <div class="form-group">
-                <label for="weitere_infos">Weitere Infos</label>
-                <textarea id="weitere_infos" placeholder="Zusätzliche Anmerkungen..."></textarea>
+            <div>
+              <label for="beschreibung_nutzer">Beschreibung für Nutzer</label>
+              <textarea id="beschreibung_nutzer" name="beschreibung_nutzer"></textarea>
             </div>
 
-            <!-- Screenshot -->
-            <div class="form-group">
-                <label>Screenshot (Strg+V zum Einfügen) *</label>
-                <div class="screenshot-box" id="screenshotBox">
-                    <p>🖼️ Screenshot hier einfügen (Strg+V)</p>
-                    <img id="screenshotPreview" alt="Screenshot Preview">
-                </div>
+            <div class="full">
+              <label for="Maßnahmen_nutzer">Maßnahmen für Nutzer</label>
+              <textarea id="Maßnahmen_nutzer" name="Maßnahmen_nutzer"></textarea>
             </div>
+          </div>
+        </div>
 
-            <!-- Buttons -->
-            <div class="buttons">
-                <button type="submit" class="btn-submit">💾 Download (JSON + PNG)</button>
-                <button type="reset" class="btn-reset">🔄 Zurücksetzen</button>
-            </div>
+        <div class="section">
+          <h2>Screenshot</h2>
 
-            <div class="success-message" id="successMessage">
-                ✅ Dateien erfolgreich generiert! JSON und PNG wurden heruntergeladen.
-            </div>
-            <div class="error-message" id="errorMessage"></div>
-        </form>
-    </div>
+          <label for="screenshotFile" class="dropzone" id="dropzone">
+            <strong>Screenshot auswählen oder hierher ziehen</strong>
+            <span class="hint">Alternativ kann ein Bild mit Strg+V eingefügt werden.</span>
+            <input id="screenshotFile" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+            <img id="preview" alt="Vorschau des Screenshots">
+          </label>
 
-    <script>
-        let screenshotBlob = null;
-        let tags = [];
+          <label for="screenshot">Screenshot-Pfad oder URL</label>
+          <input id="screenshot" name="screenshot" type="text">
+          <span class="hint">
+            Wird beim Speichern automatisch auf <code>reports/ID.png</code> gesetzt.
+          </span>
+        </div>
 
-        // Screenshot via Strg+V einfügen
-        document.addEventListener('paste', (e) => {
-            const items = e.clipboardData.items;
-            for (let item of items) {
-                if (item.type.indexOf('image') === 0) {
-                    const blob = item.getAsFile();
-                    screenshotBlob = blob;
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const preview = document.getElementById('screenshotPreview');
-                        preview.src = event.target.result;
-                        preview.style.display = 'block';
-                    };
-                    reader.readAsDataURL(blob);
-                    e.preventDefault();
-                }
-            }
-        });
+        <div class="actions">
+          <button class="folder" type="button" id="chooseFolder">
+            reports-Ordner auswählen
+          </button>
 
-        // Tags Management
-        document.getElementById('tagInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const input = e.target;
-                const tag = input.value.trim();
-                if (tag && !tags.includes(tag)) {
-                    tags.push(tag);
-                    renderTags();
-                    input.value = '';
-                }
-            }
-        });
+          <button class="primary" type="submit">
+            JSON und PNG speichern
+          </button>
 
-        function renderTags() {
-            const container = document.getElementById('tagsContainer');
-            const input = document.getElementById('tagInput');
-            
-            // Remove existing tags
-            container.querySelectorAll('.tag').forEach(el => el.remove());
-            
-            // Add tags
-            tags.forEach(tag => {
-                const tagEl = document.createElement('div');
-                tagEl.className = 'tag';
-                tagEl.innerHTML = `
-                    ${tag}
-                    <button type="button">×</button>
-                `;
-                tagEl.querySelector('button').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    tags = tags.filter(t => t !== tag);
-                    renderTags();
-                });
-                container.insertBefore(tagEl, input);
-            });
+          <button class="secondary" type="reset">
+            Zurücksetzen
+          </button>
+        </div>
+
+        <div id="message" class="message"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#meldungForm");
+    const fileInput = document.querySelector("#screenshotFile");
+    const dropzone = document.querySelector("#dropzone");
+    const preview = document.querySelector("#preview");
+    const message = document.querySelector("#message");
+
+    let screenshotBlob = null;
+    let reportsDirectory = null;
+
+    const fieldNames = [
+      "id",
+      "melder",
+      "datum_meldung",
+      "datum_mail",
+      "absender",
+      "betreff",
+      "beschreibung_ISB",
+      "beschreibung_nutzer",
+      "Maßnahmen_nutzer",
+      "status",
+      "gefaehrlicher_link",
+      "screenshot"
+    ];
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = `message ${type}`;
+    }
+
+    function makeId() {
+      const date = new Date().toISOString().slice(0, 10);
+      const random = Math.floor(Math.random() * 10000)
+        .toString()
+        .padStart(4, "0");
+
+      return `${date}-${random}`;
+    }
+
+    function setImage(blob) {
+      screenshotBlob = blob;
+      preview.src = URL.createObjectURL(blob);
+      preview.style.display = "block";
+    }
+
+    function setDefaultDates() {
+      const now = new Date();
+      const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+        .toISOString()
+        .slice(0, 16);
+
+      document.querySelector("#id").value = makeId();
+      document.querySelector("#datum_meldung").value = local;
+      document.querySelector("#datum_mail").value = local;
+    }
+
+    function fillFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+
+      fieldNames.forEach((name) => {
+        if (params.has(name)) {
+          const field = document.getElementById(name);
+
+          if (field) {
+            field.value = params.get(name);
+          }
         }
+      });
+    }
 
-        // Form Submit
-        document.getElementById('meldungForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+    function getFormData() {
+      const data = {};
 
-            const errorMsg = document.getElementById('errorMessage');
-            const successMsg = document.getElementById('successMessage');
-            errorMsg.style.display = 'none';
-            successMsg.style.display = 'none';
+      fieldNames.forEach((name) => {
+        const field = document.getElementById(name);
+        data[name] = field ? field.value.trim() : "";
+      });
 
-            // Validierung
-            if (!screenshotBlob) {
-                errorMsg.textContent = '❌ Fehler: Screenshot erforderlich (Strg+V)';
-                errorMsg.style.display = 'block';
-                return;
-            }
+      if (!data.id) {
+        data.id = makeId();
+      }
 
-            try {
-                // Daten sammeln
-                const datum = document.getElementById('datum').value;
-                const uhrzeit = document.getElementById('uhrzeit').value;
-                const absender = document.getElementById('absender').value;
-                const betreff = document.getElementById('betreff').value;
-                const typ = document.getElementById('typ').value;
-                const beschreibung = document.getElementById('beschreibung').value;
-                const status = document.getElementById('status').value;
-                const gefaehrlicher_link = document.getElementById('gefaehrlicher_link').value;
-                const weitere_infos = document.getElementById('weitere_infos').value;
+      if (!data.datum_meldung) {
+        data.datum_meldung = new Date().toISOString();
+      }
 
-                // ID generieren (datum-vierstelligeZufallszahl)
-                const randomNum = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
-                const id = `${datum}-${randomNum}`;
+      return data;
+    }
 
-                // Datum/Uhrzeit kombinieren (ISO 8601)
-                const fullDateTime = new Date(`${datum}T${uhrzeit}`).toISOString();
+    async function saveToDirectory(directory, filename, data) {
+      const fileHandle = await directory.getFileHandle(filename, {
+        create: true
+      });
 
-                // JSON generieren
-                const meldung = {
-                    meldungen: [
-                        {
-                            id: id,
-                            datum: fullDateTime,
-                            absender: absender,
-                            betreff: betreff,
-                            typ: typ,
-                            beschreibung: beschreibung,
-                            status: status,
-                            tags: tags.length > 0 ? tags : [],
-                            gefaehrlicher_link: gefaehrlicher_link,
-                            weitere_infos: weitere_infos,
-                            screenshot: `https://hapela.github.io/phishing-tracker/reports/${id}.png`
-                        }
-                    ]
-                };
+      const writable = await fileHandle.createWritable();
+      await writable.write(data);
+      await writable.close();
+    }
 
-                // JSON Download
-                const jsonString = JSON.stringify(meldung, null, 2);
-                const jsonBlob = new Blob([jsonString], { type: 'application/json' });
-                downloadFile(jsonBlob, `${id}.json`);
+    function downloadFile(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
 
-                // PNG Download
-                downloadFile(screenshotBlob, `${id}.png`);
+      link.href = url;
+      link.download = filename;
+      link.click();
 
-                // Success Message
-                successMsg.style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('meldungForm').reset();
-                    screenshotBlob = null;
-                    tags = [];
-                    renderTags();
-                    document.getElementById('screenshotPreview').style.display = 'none';
-                    successMsg.style.display = 'none';
-                }, 3000);
+      URL.revokeObjectURL(url);
+    }
 
-            } catch (error) {
-                errorMsg.textContent = `❌ Fehler: ${error.message}`;
-                errorMsg.style.display = 'block';
-            }
+    document.querySelector("#chooseFolder").addEventListener("click", async () => {
+      if (!window.showDirectoryPicker) {
+        showMessage(
+          "Dieser Browser unterstützt keine direkte Ablage. Bitte Chrome oder Edge verwenden.",
+          "error"
+        );
+        return;
+      }
+
+      try {
+        reportsDirectory = await window.showDirectoryPicker({
+          mode: "readwrite"
         });
 
-        // Download Helper
-        function downloadFile(blob, filename) {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+        showMessage(
+          "Der reports-Ordner wurde ausgewählt. Neue Meldungen werden dort gespeichert.",
+          "success"
+        );
+      } catch {
+        showMessage("Die Auswahl des Ordners wurde abgebrochen.", "error");
+      }
+    });
+
+    fileInput.addEventListener("change", () => {
+      if (fileInput.files[0]) {
+        setImage(fileInput.files[0]);
+      }
+    });
+
+    ["dragenter", "dragover"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        dropzone.classList.add("active");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        dropzone.classList.remove("active");
+      });
+    });
+
+    dropzone.addEventListener("drop", (event) => {
+      const file = event.dataTransfer.files[0];
+
+      if (file && file.type.startsWith("image/")) {
+        setImage(file);
+      }
+    });
+
+    document.addEventListener("paste", (event) => {
+      const imageItem = [...event.clipboardData.items]
+        .find((item) => item.type.startsWith("image/"));
+
+      if (imageItem) {
+        setImage(imageItem.getAsFile());
+        event.preventDefault();
+      }
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!screenshotBlob) {
+        showMessage("Bitte zuerst einen Screenshot auswählen oder einfügen.", "error");
+        return;
+      }
+
+      const data = getFormData();
+      const jsonFilename = `${data.id}.json`;
+      const pngFilename = `${data.id}.png`;
+
+      data.screenshot = `reports/${pngFilename}`;
+
+      const json = JSON.stringify({
+        meldungen: [data]
+      }, null, 2);
+
+      try {
+        if (reportsDirectory) {
+          await saveToDirectory(
+            reportsDirectory,
+            jsonFilename,
+            json
+          );
+
+          await saveToDirectory(
+            reportsDirectory,
+            pngFilename,
+            screenshotBlob
+          );
+
+          showMessage(
+            `Die Dateien wurden direkt in reports gespeichert: ${jsonFilename} und ${pngFilename}`,
+            "success"
+          );
+        } else {
+          downloadFile(
+            new Blob([json], { type: "application/json" }),
+            jsonFilename
+          );
+
+          downloadFile(screenshotBlob, pngFilename);
+
+          showMessage(
+            "Die Dateien wurden heruntergeladen. Verschiebe sie anschließend in den Ordner reports.",
+            "success"
+          );
         }
-    </script>
+      } catch (error) {
+        showMessage(`Fehler beim Speichern: ${error.message}`, "error");
+      }
+    });
+
+    form.addEventListener("reset", () => {
+      setTimeout(() => {
+        screenshotBlob = null;
+        preview.removeAttribute("src");
+        preview.style.display = "none";
+        setDefaultDates();
+        fillFromUrl();
+      }, 0);
+    });
+
+    setDefaultDates();
+    fillFromUrl();
+  </script>
 </body>
 </html>
-
