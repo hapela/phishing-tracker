@@ -1,0 +1,18 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-09-12-2088",
+      "melder": "Heinz Heinzelmann",
+      "datum_meldung": "2026-09-12T23:55",
+      "datum_mail": "2026-09-12T23:55",
+      "absender": "Tester@mail.de",
+      "betreff": "Das ist ein Test",
+      "beschreibung_ISB": "Beschreibung für den ISB",
+      "beschreibung_nutzer": "Beschreibung für den Nutzer",
+      "Maßnahmen_nutzer": "Empfohlene Maßnahmen",
+      "status": "open",
+      "gefaehrlicher_link": "http://www.gefahr.de",
+      "screenshot": "reports/2026-09-12-2088.png"
+    }
+  ]
+}
