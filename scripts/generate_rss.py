@@ -105,7 +105,7 @@ def report_description(report, audience):
 
     link_html = ""
 
-    if report.get("gefaehrlicher_link"):
+    if audience == "isb" and report.get("gefaehrlicher_link"):
         link = text(report["gefaehrlicher_link"])
         link_html = f"""
 <p>
