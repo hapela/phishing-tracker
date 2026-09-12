@@ -5,7 +5,7 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Sicherheitsmeldungs-Feed</description>
     <language>de-de</language>
-    <lastBuildDate>Sat, 12 Sep 2026 22:04:49 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 23:02:18 GMT</lastBuildDate>
     
 <item>
   <title>Das ist ein Test</title>
@@ -26,11 +26,6 @@
   </p>
 
   
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>http://www.gefahr.de</code>
-</p>
-
 
   <p>
     <strong>Beschreibung:</strong><br>
@@ -56,7 +51,7 @@
   <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-08-101</link>
   <guid isPermaLink="false">2026-08-101-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>⚠️ Dringende meldung eines gefälschten Kontos</h2>
@@ -85,55 +80,10 @@
 </item>
 
 <item>
-  <title>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</title>
-  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-08-0675</link>
-  <guid isPermaLink="false">2026-09-08-0675-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
-  <description><![CDATA[
-<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
-  <h2>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</h2>
-
-  <p>
-    <strong>Meldungs-ID:</strong> 2026-09-08-0675<br>
-    <strong>Status:</strong> open<br>
-    <strong>Gemeldet von:</strong> <br>
-    <strong>Datum der Meldung:</strong> <br>
-    <strong>Datum der E-Mail:</strong> <br>
-    <strong>Absender:</strong> Telekom Deutschland GmbH &lt;info@tenshoku-shigoto.com&gt;
-  </p>
-
-  
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>hxxps://rw.xnybex.net/Tyre_24_Rechnung_[....]_08.09.2026.zip</code>
-</p>
-
-
-  <p>
-    <strong>Beschreibung:</strong><br>
-    
-  </p>
-
-  
-
-  
-<p>
-  <img
-    src="https://hapela.github.io/phishing-tracker/reports/2026-09-08-0675.png"
-    alt="Screenshot zur Meldung"
-    style="max-width:100%;height:auto;border-radius:12px;"
-  >
-</p>
-
-</div>
-]]></description>
-</item>
-
-<item>
   <title>Erforderliche Maßnahme: Schließen Sie die Identitätsprüfung ab.</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-10-6780</link>
   <guid isPermaLink="false">2026-09-10-6780-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Erforderliche Maßnahme: Schließen Sie die Identitätsprüfung ab.</h2>
@@ -148,11 +98,6 @@
   </p>
 
   
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>https://notifications.googleapis.com/email/redirect?t=....&amp;s=......</code>
-</p>
-
 
   <p>
     <strong>Beschreibung:</strong><br>
@@ -175,10 +120,90 @@
 </item>
 
 <item>
+  <title>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</title>
+  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-08-0675</link>
+  <guid isPermaLink="false">2026-09-08-0675-user</guid>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <description><![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> 2026-09-08-0675<br>
+    <strong>Status:</strong> open<br>
+    <strong>Gemeldet von:</strong> <br>
+    <strong>Datum der Meldung:</strong> <br>
+    <strong>Datum der E-Mail:</strong> <br>
+    <strong>Absender:</strong> Telekom Deutschland GmbH &lt;info@tenshoku-shigoto.com&gt;
+  </p>
+
+  
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    
+  </p>
+
+  
+
+  
+<p>
+  <img
+    src="https://hapela.github.io/phishing-tracker/reports/2026-09-08-0675.png"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
+
+</div>
+]]></description>
+</item>
+
+<item>
+  <title>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</title>
+  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-02-4375</link>
+  <guid isPermaLink="false">2026-09-02-4375-user</guid>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <description><![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> 2026-09-02-4375<br>
+    <strong>Status:</strong> open<br>
+    <strong>Gemeldet von:</strong> <br>
+    <strong>Datum der Meldung:</strong> <br>
+    <strong>Datum der E-Mail:</strong> <br>
+    <strong>Absender:</strong> ChatGPT Plus &lt;prussle=gmailold.com@hubspotfree.eu1.hs-send.com&gt;
+  </p>
+
+  
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    
+  </p>
+
+  
+
+  
+<p>
+  <img
+    src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-09-02-4375.png"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
+
+</div>
+]]></description>
+</item>
+
+<item>
   <title>Das ist ein Test</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-02-4558-1</link>
   <guid isPermaLink="false">2026-09-02-4558-1-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Das ist ein Test</h2>
@@ -193,11 +218,6 @@
   </p>
 
   
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>gle.de</code>
-</p>
-
 
   <p>
     <strong>Beschreibung:</strong><br>
@@ -223,7 +243,7 @@
   <title>Ihre Steuerrückerstattung wartet auf Bestätigung</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-06-0506</link>
   <guid isPermaLink="false">2026-09-06-0506-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Ihre Steuerrückerstattung wartet auf Bestätigung</h2>
@@ -238,11 +258,6 @@
   </p>
 
   
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>hxxps[:]//www.google.com/share.google?q=BDAWFBlvI85SDJzoN</code>
-</p>
-
 
   <p>
     <strong>Beschreibung:</strong><br>
@@ -265,55 +280,10 @@
 </item>
 
 <item>
-  <title>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</title>
-  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-02-4375</link>
-  <guid isPermaLink="false">2026-09-02-4375-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
-  <description><![CDATA[
-<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
-  <h2>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</h2>
-
-  <p>
-    <strong>Meldungs-ID:</strong> 2026-09-02-4375<br>
-    <strong>Status:</strong> open<br>
-    <strong>Gemeldet von:</strong> <br>
-    <strong>Datum der Meldung:</strong> <br>
-    <strong>Datum der E-Mail:</strong> <br>
-    <strong>Absender:</strong> ChatGPT Plus &lt;prussle=gmailold.com@hubspotfree.eu1.hs-send.com&gt;
-  </p>
-
-  
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>https://dkyxg304.eu1.hubspotlinksfree.com/Ctc/UG+113/dkyxg304/......</code>
-</p>
-
-
-  <p>
-    <strong>Beschreibung:</strong><br>
-    
-  </p>
-
-  
-
-  
-<p>
-  <img
-    src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-09-02-4375.png"
-    alt="Screenshot zur Meldung"
-    style="max-width:100%;height:auto;border-radius:12px;"
-  >
-</p>
-
-</div>
-]]></description>
-</item>
-
-<item>
   <title>Mail-Phishing</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-08-002</link>
   <guid isPermaLink="false">2026-08-002-user</guid>
-  <pubDate>Sat, 12 Sep 2026 22:04:49 GMT</pubDate>
+  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Mail-Phishing</h2>
@@ -328,11 +298,6 @@
   </p>
 
   
-<p>
-  <strong>Gefährlicher Link:</strong><br>
-  <code>hxxp://automated[.]wickedwebsites[.]us/chopped/stateswoman</code>
-</p>
-
 
   <p>
     <strong>Beschreibung:</strong><br>
