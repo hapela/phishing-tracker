@@ -1,220 +1,221 @@
+import html
 import json
 import os
-from datetime import datetime
-from email.utils import formatdate
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from urllib.parse import quote
 
 REPORTS_DIR = "reports"
-OUTPUT_FILE = "feed.xml"
-BASE_URL = "https://hapela.github.io/phishing-tracker"  # Anpassen!
+BASE_URL = "https://hapela.github.io/phishing-tracker"
 
-RSS_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-     xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sicherheitsmeldungen</title>
-    <link>{base_url}</link>
-    <description>Automatisch generierter Feed aus Sicherheitsmeldungen</description>
-    <language>de-de</language>
-    <lastBuildDate>{lastBuildDate}</lastBuildDate>
+ISB_FEED = "feed_isb.xml"
+USER_FEED = "feed_user.xml"
+
+
+def text(value):
+    if value is None:
+        return ""
+
+    if isinstance(value, list):
+        value = ", ".join(str(item) for item in value)
+
+    return html.escape(str(value))
+
+
+def cdata(value):
+    value = str(value or "")
+    return value.replace("]]>", "]]]]><![CDATA[>")
+
+
+def parse_date(value):
+    if not value:
+        return datetime.now(timezone.utc)
+
+    try:
+        value = str(value).replace("Z", "+00:00")
+        result = datetime.fromisoformat(value)
+
+        if result.tzinfo is None:
+            result = result.replace(tzinfo=timezone.utc)
+
+        return result
+    except ValueError:
+        return datetime.now(timezone.utc)
+
+
+def load_reports():
+    reports = []
+
+    if not os.path.isdir(REPORTS_DIR):
+        os.makedirs(REPORTS_DIR, exist_ok=True)
+        return reports
+
+    for filename in sorted(os.listdir(REPORTS_DIR)):
+        if not filename.lower().endswith(".json"):
+            continue
+
+        path = os.path.join(REPORTS_DIR, filename)
+
+        try:
+            with open(path, "r", encoding="utf-8") as file:
+                content = json.load(file)
+
+            entries = content.get("meldungen", [])
+
+            if isinstance(entries, dict):
+                entries = [entries]
+
+            for entry in entries:
+                if isinstance(entry, dict):
+                    reports.append(entry)
+
+        except Exception as error:
+            print(f"Fehler beim Lesen von {filename}: {error}")
+
+    return reports
+
+
+def screenshot_url(report):
+    screenshot = str(report.get("screenshot", "")).strip()
+
+    if not screenshot:
+        return ""
+
+    if screenshot.startswith(("http://", "https://")):
+        return screenshot
+
+    return f"{BASE_URL}/{screenshot.lstrip('/')}"
+
+
+def report_description(report, audience):
+    screenshot = screenshot_url(report)
+
+    image_html = ""
+
+    if screenshot:
+        image_html = f"""
+<p>
+  <img
+    src="{html.escape(screenshot, quote=True)}"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
 """
 
-RSS_FOOTER = """  </channel>
+    link_html = ""
+
+    if report.get("gefaehrlicher_link"):
+        link = text(report["gefaehrlicher_link"])
+        link_html = f"""
+<p>
+  <strong>Gefährlicher Link:</strong><br>
+  <code>{link}</code>
+</p>
+"""
+
+    if audience == "isb":
+        main_description = report.get("beschreibung_ISB", "")
+        additional = f"""
+<p>
+  <strong>Maßnahmen des Nutzers:</strong><br>
+  {text(report.get("Maßnahmen_nutzer", ""))}
+</p>
+"""
+    else:
+        main_description = report.get("beschreibung_nutzer", "")
+        additional = ""
+
+    return f"""<![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>{text(report.get("betreff", "Sicherheitsmeldung"))}</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> {text(report.get("id"))}<br>
+    <strong>Status:</strong> {text(report.get("status"))}<br>
+    <strong>Gemeldet von:</strong> {text(report.get("melder"))}<br>
+    <strong>Datum der Meldung:</strong> {text(report.get("datum_meldung"))}<br>
+    <strong>Datum der E-Mail:</strong> {text(report.get("datum_mail"))}<br>
+    <strong>Absender:</strong> {text(report.get("absender"))}
+  </p>
+
+  {link_html}
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    {text(main_description)}
+  </p>
+
+  {additional}
+
+  {image_html}
+</div>
+]]>"""
+
+
+def build_item(report, audience):
+    report_id = str(report.get("id", "unbekannt"))
+    subject = str(report.get("betreff", "Sicherheitsmeldung"))
+    date = parse_date(report.get("datum_mail") or report.get("datum_meldung"))
+
+    return f"""
+<item>
+  <title>{text(subject)}</title>
+  <link>{BASE_URL}/#meldung-{quote(report_id)}</link>
+  <guid isPermaLink="false">{text(report_id)}-{audience}</guid>
+  <pubDate>{format_datetime(date, usegmt=True)}</pubDate>
+  <description>{report_description(report, audience)}</description>
+</item>
+"""
+
+
+def build_feed(reports, audience, title, filename):
+    items = sorted(
+        reports,
+        key=lambda item: parse_date(
+            item.get("datum_mail") or item.get("datum_meldung")
+        ),
+        reverse=True,
+    )
+
+    now = format_datetime(datetime.now(timezone.utc), usegmt=True)
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{html.escape(title)}</title>
+    <link>{BASE_URL}</link>
+    <description>Automatisch generierter Sicherheitsmeldungs-Feed</description>
+    <language>de-de</language>
+    <lastBuildDate>{now}</lastBuildDate>
+    {''.join(build_item(item, audience) for item in items)}
+  </channel>
 </rss>
 """
 
-ITEM_TEMPLATE = """    <item>
-      <title>{title}</title>
-      <pubDate>{pubDate}</pubDate>
-      <guid>{guid}</guid>
-      <description>
-<![CDATA[
-<table width="100%" cellpadding="10" cellspacing="0" border="0" 
-       style="font-family:Segoe UI,Arial,sans-serif;border:1px solid #cccccc;">
-    <tr>
-       <td bgcolor="#c62828" style="color:white;font-size:22px;font-weight:bold;">
-        🚨 SICHERHEITSWARNUNG
-       </td>
-    </tr>
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(xml)
 
-    <tr>
-       <td>
-           <h2 style="margin:0;"> {typ} </h2>
-       </td>
-    </tr>
+    print(f"{filename}: {len(items)} Meldungen verarbeitet")
 
-    <tr>
-       <td bgcolor="#fff4e5">
-           <strong>Risiko:</strong> KRITISCH<br>
-           <strong>Datum:</strong> {datum} <br>
-           <strong>gemeldet von: </strong> Heinz Herrmann
-       </td>
-    </tr>
 
-    <tr>
-       <td>
-           <strong>📧 Absender </strong> (kann sich ggf. ändern)<br>
-           {absender}
-       </td>
-    </tr>
+def main():
+    reports = load_reports()
 
-    <tr>
-       <td>
-           {gefaehrlicher_link_block}
-       </td>
-    </tr>
-
-    <tr>
-       <td align="center">
-           {screenshot_block}
-       </td>
-    </tr>
-
-    <tr>
-       <td>
-           <strong>ℹ Beschreibung</strong><br>
-           {beschreibung}
-       </td>
-    </tr>
-
-    <tr>
-       <td bgcolor="#e8f5e9">
-           <strong>ℹ Weitere Infos zu dieser Meldung</strong><br>
-           <a href="https://www.virustotal.com/gui/url/0ebfae129a2dd74e55a06f698a273d94763592f54f227eb5b35677e2bfb9dd41">
-              bei VirusTotal öffnen
-           </a>
-       </td>
-    </tr>
-
-    <tr>
-       <td bgcolor="#f5f5f5">
-           <strong>🎯 Empfohlene Maßnahmen</strong>
-           </li>
-             <li>Mail umgehend löschen</li>
-             <li>IT-Security informieren</li>
-           </ul>
-       </td>
-    </tr>
-
-</table>
-]]>
-      </description>
-    </item>
-"""
-
-def escape_html(text):
-    """Escapet HTML-Sonderzeichen"""
-    if not text:
-        return ""
-    return (text
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace('"', "&quot;")
-        .replace("'", "&#39;"))
-
-def convert_date_to_rfc2822(date_str):
-    """Konvertiert ISO 8601 oder YYYY-MM-DD zu RFC 2822 Format"""
-    try:
-        if "T" in date_str:
-            dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-        else:
-            dt = datetime.strptime(date_str, "%Y-%m-%d")
-        return formatdate(timeval=dt.timestamp(), localtime=False, usegmt=True)
-    except:
-        return formatdate(localtime=False, usegmt=True)
-
-def generate_rss():
-    """Generiert RSS Feed aus JSON Dateien"""
-    items = []
-    
-    if not os.path.exists(REPORTS_DIR):
-        os.makedirs(REPORTS_DIR)
-        return
-    
-    for filename in sorted(os.listdir(REPORTS_DIR), reverse=True):
-        if filename.endswith(".json"):
-            filepath = os.path.join(REPORTS_DIR, filename)
-            
-            try:
-                with open(filepath, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                
-                meldungen = data.get("meldungen", [])
-                
-                for meldung in meldungen:
-                    id_val = meldung.get("id", "unknown")
-                    betreff = meldung.get("betreff", "")
-                    typ = meldung.get("typ", "")
-                    absender = meldung.get("absender", "")
-                    beschreibung = meldung.get("beschreibung", "")
-                    datum = meldung.get("datum", "")
-                    gefaehrlicher_link = meldung.get("gefaehrlicher_link", "")
-                    screenshot = meldung.get("screenshot", "")
-                    
-                    title = escape_html(betreff)
-                    typ_escaped = escape_html(typ)
-                    absender_escaped = escape_html(absender)
-                    beschreibung_escaped = escape_html(beschreibung)
-                    datum_escaped = escape_html(datum)
-                    
-                    # Gefährlicher Link Block (optional)
-                    if gefaehrlicher_link:
-                        gefaehrlicher_link_block = f"""<p style="margin: 0 0 8px 0;"><strong>🔗 Gefährlicher Link:</strong></p>
-          <blockquote style="margin: 0 0 12px 24px; padding: 0;">
-             {escape_html(gefaehrlicher_link)}
-          </blockquote>
-          """
-                    else:
-                        gefaehrlicher_link_block = ""
-                    
-                    # Screenshot Block (optional)
-                    if screenshot:
-                        screenshot_url = f"{BASE_URL}/{screenshot}" if not screenshot.startswith("http") else screenshot
-                        screenshot_block = f"""<p><strong>Screenshot der Mail:</strong></p>
-          <p>
-           <img
-            src="{escape_html(screenshot_url)}"
-            alt="Screenshot"
-            style="max-width:600px;" />
-          </p>"""
-                    else:
-                        screenshot_block = ""
-                    
-                    pubDate = convert_date_to_rfc2822(datum)
-                    
-                    item = ITEM_TEMPLATE.format(
-                        title=title,
-                        pubDate=pubDate,
-                        guid=escape_html(id_val),
-                        typ=typ_escaped,
-                        absender=absender_escaped,
-                        beschreibung=beschreibung_escaped,
-                        datum=datum_escaped,
-                        gefaehrlicher_link_block=gefaehrlicher_link_block,
-                        screenshot_block=screenshot_block
-                    )
-                    items.append(item)
-            
-            except Exception as e:
-                print(f"❌ Fehler bei {filename}: {e}")
-    
-    # Aktuelles Datum für lastBuildDate
-    lastBuildDate = formatdate(localtime=False, usegmt=True)
-    
-    rss_content = RSS_HEADER.format(
-        base_url=BASE_URL,
-        lastBuildDate=lastBuildDate
+    build_feed(
+        reports,
+        "isb",
+        "Sicherheitsmeldungen für ISB",
+        ISB_FEED,
     )
-    rss_content += "\n".join(items)
-    rss_content += RSS_FOOTER
-    
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write(rss_content)
-    
-    print(f"✅ RSS Feed generiert: {OUTPUT_FILE}")
-    print(f"✅ {len(items)} Meldungen verarbeitet")
-    print(f"✅ Letzte Aktualisierung: {lastBuildDate}")
+
+    build_feed(
+        reports,
+        "user",
+        "Sicherheitsmeldungen für Nutzer",
+        USER_FEED,
+    )
+
 
 if __name__ == "__main__":
-    generate_rss()
+    main()
