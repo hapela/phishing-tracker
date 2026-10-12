@@ -1,0 +1,18 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-10-12-5927",
+      "melder": "Finanzabteilung",
+      "datum_meldung": "2026-10-12T15:28",
+      "datum_mail": "2026-10-09T11:20",
+      "absender": "ap‏oBan‏k﻿ Serv‏ice <elricchalicecm@outlook.com>",
+      "betreff": "Ihr P‏rofil is‏t limitiert",
+      "beschreibung_ISB": "Es kommen immer wieder vermeidliche Mails von der \"apoBank\" ggf. können diese herausgefiltert werden.",
+      "beschreibung_nutzer": "Die Mail wurde nicht von der apoBank versendet.",
+      "Maßnahmen_nutzer": "Klicken sie nicht auf den Link in der Mail. Löschen sie die Mail stattdessen aus Ihrem Postfach.",
+      "status": "open",
+      "gefaehrlicher_link": "hxxps://%733.us-east-2.amazonaws.com/pub-f277%661cd/assets/2026/2x5c3p",
+      "screenshot": "reports/2026-10-12-5927.png"
+    }
+  ]
+}
