@@ -5,53 +5,13 @@
     <link>https://hapela.github.io/phishing-tracker</link>
     <description>Automatisch generierter Sicherheitsmeldungs-Feed</description>
     <language>de-de</language>
-    <lastBuildDate>Sat, 12 Sep 2026 23:02:18 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 13:46:14 GMT</lastBuildDate>
     
-<item>
-  <title>Das ist ein Test</title>
-  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-12-2088</link>
-  <guid isPermaLink="false">2026-09-12-2088-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:55:00 GMT</pubDate>
-  <description><![CDATA[
-<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
-  <h2>Das ist ein Test</h2>
-
-  <p>
-    <strong>Meldungs-ID:</strong> 2026-09-12-2088<br>
-    <strong>Status:</strong> open<br>
-    <strong>Gemeldet von:</strong> Heinz Heinzelmann<br>
-    <strong>Datum der Meldung:</strong> 2026-09-12T23:55<br>
-    <strong>Datum der E-Mail:</strong> 2026-09-12T23:55<br>
-    <strong>Absender:</strong> Tester@mail.de
-  </p>
-
-  
-
-  <p>
-    <strong>Beschreibung:</strong><br>
-    Beschreibung für den Nutzer
-  </p>
-
-  
-
-  
-<p>
-  <img
-    src="https://hapela.github.io/phishing-tracker/reports/2026-09-12-2088.png"
-    alt="Screenshot zur Meldung"
-    style="max-width:100%;height:auto;border-radius:12px;"
-  >
-</p>
-
-</div>
-]]></description>
-</item>
-
 <item>
   <title>⚠️ Dringende meldung eines gefälschten Kontos</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-08-101</link>
   <guid isPermaLink="false">2026-08-101-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>⚠️ Dringende meldung eines gefälschten Kontos</h2>
@@ -83,7 +43,7 @@
   <title>Erforderliche Maßnahme: Schließen Sie die Identitätsprüfung ab.</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-10-6780</link>
   <guid isPermaLink="false">2026-09-10-6780-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Erforderliche Maßnahme: Schließen Sie die Identitätsprüfung ab.</h2>
@@ -120,10 +80,50 @@
 </item>
 
 <item>
+  <title>Ihre Steuerrückerstattung wartet auf Bestätigung</title>
+  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-06-0506</link>
+  <guid isPermaLink="false">2026-09-06-0506-user</guid>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
+  <description><![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>Ihre Steuerrückerstattung wartet auf Bestätigung</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> 2026-09-06-0506<br>
+    <strong>Status:</strong> open<br>
+    <strong>Gemeldet von:</strong> <br>
+    <strong>Datum der Meldung:</strong> <br>
+    <strong>Datum der E-Mail:</strong> <br>
+    <strong>Absender:</strong> MeinEIster &lt;egodinezh1@miumg.edu.gt&gt;
+  </p>
+
+  
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    
+  </p>
+
+  
+
+  
+<p>
+  <img
+    src="https://hapela.github.io/phishing-tracker/reports/2026-09-06-0506.png"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
+
+</div>
+]]></description>
+</item>
+
+<item>
   <title>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-08-0675</link>
   <guid isPermaLink="false">2026-09-08-0675-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>EXTERN: SPAM-Verdacht BITBW: Rechnung zu Ihre T-DE-2026-0847_August_2026</h2>
@@ -163,7 +163,7 @@
   <title>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-02-4375</link>
   <guid isPermaLink="false">2026-09-02-4375-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Verlieren Sie nicht den Zugriff auf ChatGPT Plus</h2>
@@ -203,7 +203,7 @@
   <title>Das ist ein Test</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-02-4558-1</link>
   <guid isPermaLink="false">2026-09-02-4558-1-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Das ist ein Test</h2>
@@ -240,50 +240,10 @@
 </item>
 
 <item>
-  <title>Ihre Steuerrückerstattung wartet auf Bestätigung</title>
-  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-06-0506</link>
-  <guid isPermaLink="false">2026-09-06-0506-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
-  <description><![CDATA[
-<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
-  <h2>Ihre Steuerrückerstattung wartet auf Bestätigung</h2>
-
-  <p>
-    <strong>Meldungs-ID:</strong> 2026-09-06-0506<br>
-    <strong>Status:</strong> open<br>
-    <strong>Gemeldet von:</strong> <br>
-    <strong>Datum der Meldung:</strong> <br>
-    <strong>Datum der E-Mail:</strong> <br>
-    <strong>Absender:</strong> MeinEIster &lt;egodinezh1@miumg.edu.gt&gt;
-  </p>
-
-  
-
-  <p>
-    <strong>Beschreibung:</strong><br>
-    
-  </p>
-
-  
-
-  
-<p>
-  <img
-    src="https://hapela.github.io/phishing-tracker/reports/2026-09-06-0506.png"
-    alt="Screenshot zur Meldung"
-    style="max-width:100%;height:auto;border-radius:12px;"
-  >
-</p>
-
-</div>
-]]></description>
-</item>
-
-<item>
   <title>Mail-Phishing</title>
   <link>https://hapela.github.io/phishing-tracker/#meldung-2026-08-002</link>
   <guid isPermaLink="false">2026-08-002-user</guid>
-  <pubDate>Sat, 12 Sep 2026 23:02:18 GMT</pubDate>
+  <pubDate>Mon, 12 Oct 2026 13:46:14 GMT</pubDate>
   <description><![CDATA[
 <div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
   <h2>Mail-Phishing</h2>
@@ -310,6 +270,86 @@
 <p>
   <img
     src="https://hapela.github.io/phishing-tracker/reports/screenshots/2026-08-001-mail.png"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
+
+</div>
+]]></description>
+</item>
+
+<item>
+  <title>Ihr P‏rofil is‏t limitiert</title>
+  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-10-12-5927</link>
+  <guid isPermaLink="false">2026-10-12-5927-user</guid>
+  <pubDate>Fri, 09 Oct 2026 11:20:00 GMT</pubDate>
+  <description><![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>Ihr P‏rofil is‏t limitiert</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> 2026-10-12-5927<br>
+    <strong>Status:</strong> open<br>
+    <strong>Gemeldet von:</strong> Finanzabteilung<br>
+    <strong>Datum der Meldung:</strong> 2026-10-12T15:28<br>
+    <strong>Datum der E-Mail:</strong> 2026-10-09T11:20<br>
+    <strong>Absender:</strong> ap‏oBan‏k﻿ Serv‏ice &lt;elricchalicecm@outlook.com&gt;
+  </p>
+
+  
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    Die Mail wurde nicht von der apoBank versendet.
+  </p>
+
+  
+
+  
+<p>
+  <img
+    src="https://hapela.github.io/phishing-tracker/reports/2026-10-12-5927.png"
+    alt="Screenshot zur Meldung"
+    style="max-width:100%;height:auto;border-radius:12px;"
+  >
+</p>
+
+</div>
+]]></description>
+</item>
+
+<item>
+  <title>Das ist ein Test</title>
+  <link>https://hapela.github.io/phishing-tracker/#meldung-2026-09-12-2088</link>
+  <guid isPermaLink="false">2026-09-12-2088-user</guid>
+  <pubDate>Sat, 12 Sep 2026 23:55:00 GMT</pubDate>
+  <description><![CDATA[
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#172033;">
+  <h2>Das ist ein Test</h2>
+
+  <p>
+    <strong>Meldungs-ID:</strong> 2026-09-12-2088<br>
+    <strong>Status:</strong> open<br>
+    <strong>Gemeldet von:</strong> Heinz Heinzelmann<br>
+    <strong>Datum der Meldung:</strong> 2026-09-12T23:55<br>
+    <strong>Datum der E-Mail:</strong> 2026-09-12T23:55<br>
+    <strong>Absender:</strong> Tester@mail.de
+  </p>
+
+  
+
+  <p>
+    <strong>Beschreibung:</strong><br>
+    Beschreibung für den Nutzer
+  </p>
+
+  
+
+  
+<p>
+  <img
+    src="https://hapela.github.io/phishing-tracker/reports/2026-09-12-2088.png"
     alt="Screenshot zur Meldung"
     style="max-width:100%;height:auto;border-radius:12px;"
   >
