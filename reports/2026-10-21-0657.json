@@ -1,0 +1,18 @@
+{
+  "meldungen": [
+    {
+      "id": "2026-10-21-0657",
+      "melder": "Heinz Hempel",
+      "datum_meldung": "2026-10-21T10:04",
+      "datum_mail": "2026-10-21T10:04",
+      "absender": "\"Lexware GmbH & Co. KG\" <info@autohaus-walther.de>",
+      "betreff": "Ihre Rechnung 211651980 - Lexware Software & Service",
+      "beschreibung_ISB": "Die URL enthält personenbezogene Informationen diese wurden anonymisiert.\n[max.mustermann@domain.xx]\n[hex-code]",
+      "beschreibung_nutzer": "Nicht auf den in der mail enthaltenen Link klicken.",
+      "Maßnahmen_nutzer": "Die mail sollte vom Posteingang gelöscht werden.",
+      "status": "open",
+      "gefaehrlicher_link": "hxxps://seevideo.top/rechnung-5001g.php?t=max.mustermann@domain.xx&amp;k=hex-code",
+      "screenshot": "reports/2026-10-21-0657.png"
+    }
+  ]
+}
